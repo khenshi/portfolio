@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-function smoothScrollTo(targetPosition: number, duration: number = 400) {
+function smoothScrollTo(targetPosition: number, duration: number = 50) {
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   let startTime: number | null = null;
