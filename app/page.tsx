@@ -40,7 +40,7 @@ export default function HomePage() {
 
       <FloatingNav items={navItems} show={showNav} />
 
-      <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-20 pt-12 sm:px-10">
+      <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col px-6 pb-20 pt-12 sm:px-10 gap-15">
         <ScrollContext>
           <HeroSection heroRef={heroRef} />
           <AboutSection />

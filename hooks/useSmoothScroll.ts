@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-function smoothScrollTo(targetPosition: number, duration: number = 50) {
+function smoothScrollTo(targetPosition: number, duration: number = 100) {
   const startPosition = window.pageYOffset;
   const distance = targetPosition - startPosition;
   let startTime: number | null = null;
@@ -39,7 +39,7 @@ export function useSmoothScroll() {
 
       if (targetElement) {
         e.preventDefault();
-        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - 75; // Adjust for fixed header height
         smoothScrollTo(elementPosition);
       }
     };
