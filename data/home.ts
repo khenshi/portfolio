@@ -16,6 +16,7 @@ export type Project = {
   links: {
     github: string;
     demo: string;
+    album: string;
   };
 };
 
@@ -105,34 +106,142 @@ export const skills: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-  title: "Smart Study App",
-  description:
-    "An AI-powered study management web app that helps students focus, retain information, and study efficiently through active recall and behavior-driven planning.",
-  tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Vercel"],
-  features: [
-    "AI-driven study scheduling with spaced repetition",
-    "Built-in focus mode for deep, distraction-free sessions",
-    "Learning analytics to track mastery and weak areas",
-  ],
-  links: {
-    github: "https://github.com/khenisawsomeza/smart-app",
-    demo: "https://smart-study25.vercel.app",
-  },
-},
-  {
-    title: "Word Guessing Game",
-    description: "A word guessing game inspired by Wordle, where players have ten attempts to guess a hidden five-letter word with feedback provided after each guess.",
-    tech: ["React", "CSS"],
+    title: "AdDU QPI Calculator",
+    description:
+      "A web application that helps Ateneo de Davao University students calculate, track, and simulate their Quality Point Index (QPI). It features curriculum presets, academic progress tracking, and grade planning tools to help students achieve their target QPI.",
+    tech: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Zustand"
+    ],
     features: [
-      "Dynamic feedback on letter accuracy and positioning",
-      "Keyboard input support for seamless gameplay",
-      "Responsive design for optimal experience across devices",
+      "Calculate semester and cumulative QPI using official AdDU grading rules",
+      "Track academic progress with curriculum presets and custom study plans",
+      "What-If QPI simulator for forecasting grades and target academic outcomes",
     ],
     links: {
-      github: "https://github.com/khenisawsomeza/guessing-game",
-      demo: "https://guessing-game-hinlog.vercel.app/",
+      github: "https://github.com/yourusername/addu-qpi-calculator",
+      demo: "https://addu-qpi.vercel.app",
+      album: "",
     },
   },
+  {
+    title: "Date Spots",
+    description:
+      "A location-based discovery platform that helps users find and explore recommended date destinations through interactive maps, curated place information, and location-based browsing.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "Maps API"
+    ],
+    features: [
+      "Interactive map interface with location markers for date destinations",
+      "Place preview cards with details, categories, and recommendations",
+      "Location-based discovery experience for exploring nearby spots",
+    ],
+    links: {
+      github: "https://github.com/yourusername/date-spots",
+      demo: "",
+      album: "",
+    },
+  },
+  {
+    title: "MuniMuni Resort Management System",
+    description:
+      "A full-stack resort management platform designed to streamline reservations, guest management, and administrative operations. The system provides tools for managing accommodations, bookings, front desk workflows, and resort resources through a centralized dashboard.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "Express.js"
+    ],
+    features: [
+      "Online booking and reservation management for guests",
+      "Admin dashboard for accommodations, guests, and operational management",
+      "Centralized management of rooms, cottages, packages, inventory, and transactions",
+    ],
+    links: {
+      github: "https://github.com/yourusername/munimuni-resort",
+      demo: "",
+      album: "",
+    },
+  },
+  {
+    title: "TruthLayer",
+    description:
+      "An AI-powered misinformation detection platform that analyzes online content and estimates its credibility using natural language processing and machine learning. Built during a hackathon to help users identify potentially misleading information.",
+    tech: [
+      "TypeScript",
+      "Python",
+      "FastAPI",
+      "scikit-learn",
+      "OpenAI",
+      "Pinecone",
+      "Tailwind CSS",
+      "Docker"
+    ],
+    features: [
+      "AI-powered credibility analysis for articles and social media content",
+      "Chrome extension integration for real-time Facebook post analysis",
+      "Retrieval-augmented verification using vector search and trusted knowledge sources",
+    ],
+    links: {
+      github: "https://github.com/khenshi/MJKTeam1-TruthLayer",
+      demo: "",
+      album: "https://drive.google.com/file/d/184efcM5xcEJGrqbDCaqBONFXMAxTZQ4x/view?fbclid=IwY2xjawTLNMZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeE_E7pYmCIubWL8P03DvGXLFpL_UdlgTH_axH49G3Ni1PPAP3DGVp5fdbuaM_aem_rACZhjlmrulMdkSnbqMhCQ&pli=1",
+    },
+  },
+  {
+    title: "Point of Sale (POS) System",
+    description:
+      "A desktop-based point-of-sale system developed in Java for a school project, designed to manage sales transactions, inventory, and user accounts through an intuitive interface for cashiers and administrators.",
+    tech: [
+      "Java",
+      "Java Swing",
+      "SQLite",
+      "JDBC"
+    ],
+    features: [
+      "Role-based user authentication and account management",
+      "Product and inventory management with CRUD operations",
+      "Sales processing with receipt generation and transaction history",
+    ],
+    links: {
+      github: "https://github.com/khenshi/POS_ENHANCED",
+      demo: "",
+      album: "https://drive.google.com/drive/folders/1Sg7kPdaU29_zzIm1pgSXAYxPA6RYsxlv?usp=share_link",
+    },
+  },
+  {
+  title: "Enrollment Management System",
+  description:
+    "A desktop-based enrollment management system developed in Java that streamlines student record management and enrollment workflows while demonstrating core database operations through a MySQL backend.",
+  tech: [
+    "Java",
+    "Java Swing",
+    "MySQL",
+    "JDBC"
+  ],
+  features: [
+    "Student enrollment and record management with full CRUD functionality",
+    "Course and section management with MySQL database integration",
+    "Search, filter, and update student information through a user-friendly interface",
+  ],
+  links: {
+    github: "https://github.com/khenshi/HinlogESystem7/settings",
+    demo: "",
+    album: "",
+  },
+},
 ];
 
 export const experience: ExperienceItem[] = [
