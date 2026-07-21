@@ -24,6 +24,11 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           <ScrollAnimate key={project.title} delay={index * 100}>
             <div className="group relative flex h-full flex-col rounded-3xl border border-white/10 bg-[#0c0f16]/70 p-6 shadow-lg shadow-black/30 transition duration-200">
               <h2 className="text-lg font-semibold text-white">{project.title}</h2>
+              {project.ongoing && (
+                <span className="absolute top-[-12px] right-4 rounded-full bg-purple-500 px-3 py-1 text-xs font-semibold text-white">
+                  Ongoing
+                </span>
+              )}
               <p className="mt-3 text-sm leading-relaxed text-zinc-300">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
                 {project.tech.map((tech) => (
@@ -55,14 +60,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                     Album
                   </Link>
                 )}
-                <Link
-                  href={project.links.github}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-4 py-2 transition hover:border-white/30 hover:bg-white/10"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  GitHub
-                </Link>
               </div>
             </div>
           </ScrollAnimate>

@@ -56,7 +56,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
     // </section>
     <section
         ref={heroRef}
-        id="hero"
+        id="home"
         className="rounded-3xl p-6 sm:p-8 min-h-[90vh] flex flex-col items-center justify-center gap-12 pb-10 pt-10 text-center lg:flex-row"
       >
         <ScrollAnimate>
@@ -66,7 +66,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
           <div className="flex flex-col items-center gap-15 text-center sm:flex-row sm:items-center sm:text-left">
             
             {/* Modern Image Frame */}
-            <div className="relative h-32 w-32 shrink-0 rounded-2xl border border-white/10 bg-white/5 p-1 shadow-inner sm:h-70 sm:w-70">
+            <div className="relative h-32 w-32 shrink-0 rounded-2xl border border-white/10 bg-[#0c0f16]/70 p-1 shadow-inner sm:h-70 sm:w-70">
               <div className="relative h-full w-full overflow-hidden rounded-xl bg-zinc-900">
                 <Image
                   src="/pfp.webp"
@@ -96,7 +96,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
           <div className="flex flex-col gap-3 text-sm font-semibold text-white sm:flex-row sm:flex-wrap">
             <a
               href="mailto:hinlogkhenyshi@gmail.com"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition bg-[#0c0f16]/70 hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
             >
               Email
             </a>
@@ -104,7 +104,7 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
               href="https://github.com/khenshi"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition bg-[#0c0f16]/70 hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
             >
               GitHub
             </Link>
@@ -112,9 +112,17 @@ export function HeroSection({ heroRef }: HeroSectionProps) {
               href="https://www.linkedin.com/in/khenyshi-hinlog-27269539b/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition bg-[#0c0f16]/70 hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
             >
               LinkedIn
+            </Link>
+            <Link
+              href="https://www.tiktok.com/@_khenshi_"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 transition bg-[#0c0f16]/70 hover:border-white/30 hover:bg-white/10 sm:w-auto sm:py-2"
+            >
+              TikTok
             </Link>
           </div>
 

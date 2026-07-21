@@ -18,6 +18,8 @@ export type Project = {
     demo: string;
     album: string;
   };
+  ongoing?: boolean;
+  role?: string;
 };
 
 export type ExperienceItem = {
@@ -36,6 +38,7 @@ export type Certificate = {
 };
 
 export const navItems: NavItem[] = [
+  { id: "home", label: "Home" },
   { id: "skills", label: "Tech" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
@@ -99,7 +102,6 @@ export const projects: Project[] = [
       "A web application that helps Ateneo de Davao University students calculate, track, and simulate their Quality Point Index (QPI). It features curriculum presets, academic progress tracking, and grade planning tools to help students achieve their target QPI.",
     tech: [
       "Next.js",
-      "React",
       "TypeScript",
       "Tailwind CSS",
       "Prisma",
@@ -119,15 +121,15 @@ export const projects: Project[] = [
     },
   },
   {
-    title: "Date Spots",
+    title: "Dates",
     description:
       "A location-based discovery platform that helps users find and explore recommended date destinations through interactive maps, curated place information, and location-based browsing.",
     tech: [
       "Next.js",
       "TypeScript",
-      "React",
       "Tailwind CSS",
-      "Maps API"
+      "Maps API",
+      "PostgreSQL",
     ],
     features: [
       "Interactive map interface with location markers for date destinations",
@@ -136,9 +138,10 @@ export const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/yourusername/date-spots",
-      demo: "",
+      demo: "https://davaodates.vercel.app",
       album: "",
     },
+    ongoing: true,
   },
   {
     title: "MuniMuni Resort Management System",
@@ -159,9 +162,10 @@ export const projects: Project[] = [
     ],
     links: {
       github: "https://github.com/yourusername/munimuni-resort",
-      demo: "",
+      demo: "https://munimuni-resort.vercel.app",
       album: "",
     },
+    ongoing: true,
   },
   {
     title: "TruthLayer",
