@@ -18,7 +18,7 @@ export type Project = {
     demo: string;
     album: string;
   };
-  ongoing?: boolean;
+  note?: string;
   role?: string;
 };
 
@@ -97,7 +97,7 @@ export const skills: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    title: "AdDU QPI Calculator",
+    title: "AdDU QPI Simulator",
     description:
       "A web application that helps Ateneo de Davao University students calculate, track, and simulate their Quality Point Index (QPI). It features curriculum presets, academic progress tracking, and grade planning tools to help students achieve their target QPI.",
     tech: [
@@ -141,7 +141,7 @@ export const projects: Project[] = [
       demo: "https://davaodates.vercel.app",
       album: "",
     },
-    ongoing: true,
+    note: "ongoing",
   },
   {
     title: "MuniMuni Resort Management System",
@@ -165,7 +165,7 @@ export const projects: Project[] = [
       demo: "https://munimuni-resort.vercel.app",
       album: "",
     },
-    ongoing: true,
+    note: "ongoing",
   },
   {
     title: "TruthLayer",
@@ -191,6 +191,7 @@ export const projects: Project[] = [
       demo: "",
       album: "https://drive.google.com/file/d/184efcM5xcEJGrqbDCaqBONFXMAxTZQ4x/view?fbclid=IwY2xjawTLNMZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeE_E7pYmCIubWL8P03DvGXLFpL_UdlgTH_axH49G3Ni1PPAP3DGVp5fdbuaM_aem_rACZhjlmrulMdkSnbqMhCQ&pli=1",
     },
+    note: "hackathon top 6",
   },
   {
     title: "Point of Sale (POS) System",
