@@ -36,12 +36,10 @@ export type Certificate = {
 };
 
 export const navItems: NavItem[] = [
-  { id: "about", label: "About" },
   { id: "skills", label: "Tech" },
   { id: "projects", label: "Projects" },
   { id: "experience", label: "Experience" },
   { id: "certificates", label: "Certificates" },
-  { id: "contact", label: "Contact" },
 ];
 
 export const skills: SkillGroup[] = [
@@ -90,16 +88,6 @@ export const skills: SkillGroup[] = [
       "Supabase",
       "Neon",
       "Hugging Face",
-    ],
-  },
-  {
-    title: "Practices",
-    items: [
-      "REST APIs",
-      "Database Design",
-      "Responsive Design",
-      "Component-Based Architecture",
-      "Git Workflow",
     ],
   },
 ];

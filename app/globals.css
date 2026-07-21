@@ -48,7 +48,6 @@ body {
     radial-gradient(circle at 90% 50%, var(--gradient-3) 0, transparent 26%),
     var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
   overscroll-behavior-y: smooth;
   -webkit-overflow-scrolling: touch;
   transition: background-color 0.3s ease, color 0.3s ease;

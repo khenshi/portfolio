@@ -23,9 +23,6 @@ export function SkillsSection({ skills }: SkillsSectionProps) {
             <div className="rounded-3xl border border-white/10 bg-[#0c0f16]/70 p-6 shadow-lg shadow-black/30">
               <div className="flex items-center justify-between">
                 <h3 className="text-lg font-semibold text-white">{group.title}</h3>
-                <span className="text-xs uppercase tracking-[0.22em] text-zinc-400">
-                  {group.items.length} items
-                </span>
               </div>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((item) => (

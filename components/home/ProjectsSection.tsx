@@ -22,7 +22,7 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
       <div className="grid gap-6 lg:grid-cols-3">
         {projects.map((project, index) => (
           <ScrollAnimate key={project.title} delay={index * 100}>
-            <div className="group relative flex h-full flex-col rounded-3xl border border-white/10 bg-[#0c0f16]/70 p-6 shadow-lg shadow-black/30 transition duration-200 hover:-translate-y-1 hover:border-white/20 hover:shadow-2xl hover:shadow-purple-500/20">
+            <div className="group relative flex h-full flex-col rounded-3xl border border-white/10 bg-[#0c0f16]/70 p-6 shadow-lg shadow-black/30 transition duration-200">
               <h2 className="text-lg font-semibold text-white">{project.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-zinc-300">{project.description}</p>
               <div className="mt-4 flex flex-wrap gap-2">
@@ -35,14 +35,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
                   </span>
                 ))}
               </div>
-              <ul className="mt-4 space-y-2 text-sm text-zinc-200">
-                {project.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-purple-400" />
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
               <div className="mt-auto flex gap-3 pt-6 text-sm font-semibold text-white">
                 {project.links.demo && (
                   <Link

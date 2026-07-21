@@ -5,12 +5,10 @@ import { useState } from "react";
 import { Menu, X, User, Code, Folder, Briefcase, Award, Mail } from "lucide-react";
 
 const iconMap: Record<string, React.ReactNode> = {
-  about: <User size={18} />,
   skills: <Code size={18} />,
   projects: <Folder size={18} />,
   experience: <Briefcase size={18} />,
   certificates: <Award size={18} />,
-  contact: <Mail size={18} />,
 };
 
 type FloatingNavProps = {
