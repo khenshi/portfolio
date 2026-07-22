@@ -12,6 +12,7 @@ import { FloatingNav } from "@/components/home/FloatingNav";
 import { HeroSection } from "@/components/home/HeroSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { SkillsSection } from "@/components/home/SkillsSection";
+import { GithubSection } from "@/components/home/GithubSection";
 // import { Chatbot } from "@/components/chatbot/Chatbot";
 
 export default function HomePage() {
@@ -45,6 +46,7 @@ export default function HomePage() {
           <ProjectsSection projects={projects} />
           <ExperienceSection experience={experience} />
           <CertificatesSection certificates={certificates} />
+          <GithubSection />
         </ScrollContext>
       </main>
 
