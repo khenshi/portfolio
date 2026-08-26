@@ -1,28 +1,27 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeToggle } from "@/components/ui/ThemeToggle";
-
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
-  title: "Khenyshi Hinlog | Software Developer Portfolio",
+  title: "Khenyshi Hinlog — Full-stack Developer",
   description:
-    "Portfolio of Khenyshi Hinlog, a software developer focused on clean, scalable, and high-performance web applications.",
+    "Khenyshi Hinlog is a full-stack developer building clear interfaces, dependable systems, and useful software.",
   keywords: [
     "Software Developer",
     "Full-Stack",
     "Portfolio",
   ],
+  openGraph: {
+    title: "Khenyshi Hinlog — Full-stack Developer",
+    description: "Useful software, thoughtfully built.",
+    type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, alt: "Khenyshi Hinlog portfolio" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Khenyshi Hinlog — Full-stack Developer",
+    description: "Useful software, thoughtfully built.",
+    images: ["/og.png"],
+  },
 };
 
 export default function RootLayout({
@@ -32,12 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeToggle />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
