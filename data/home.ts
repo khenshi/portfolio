@@ -239,6 +239,15 @@ export const projects: Project[] = [
 
 export const experience: ExperienceItem[] = [
   {
+    role: "Full-stack Developer",
+    company: "SAMAHAN Systems Development",
+    period: "2026 — Present",
+    bullets: [
+      "Contributing to the development and maintenance of digital systems for the university's student organization.",
+      "Building dependable web features while collaborating with other student developers and organization stakeholders.",
+    ],
+  },
+  {
     role: "Software Tester",
     company: "Blackbox.ai",
     period: "2024 — 2025",

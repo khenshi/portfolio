@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, Mail } from "lucide-react";
 
 import { certificates, experience, projects, skills } from "@/data/home";
+import { GithubSection } from "@/components/home/GithubSection";
 
 const socialLinks = [
   { label: "GitHub", href: "https://github.com/khenshi" },
@@ -20,16 +21,16 @@ export default function HomePage() {
       <section id="top" className="hero shell">
         <div className="hero-copy">
           <p className="eyebrow"><span className="status-dot" />Based in Davao City, Philippines</p>
-          <h1>I build useful software, thoughtfully.</h1>
-          <p className="hero-intro">I&apos;m Khenyshi, a computer science student and full-stack developer. I care about clear interfaces, dependable systems, and technology that solves a real problem.</p>
+          <h1>Khenyshi Hinlog</h1>
+          <p className="hero-intro">I&apos;m a computer science student and full-stack developer. I care about clear interfaces, dependable systems, and technology that solves a real problem.</p>
           <div className="hero-actions">
             <a className="button button-primary" href="#work">See my work <ArrowDownRight size={16} /></a>
             <a className="text-link" href="mailto:hinlogkhenyshi@gmail.com">Get in touch <ArrowUpRight size={15} /></a>
           </div>
         </div>
         <figure className="portrait-wrap">
-          <Image src="/pfp.webp" alt="Portrait of Khenyshi Hinlog" fill priority sizes="(max-width: 760px) 100vw, 34vw" className="portrait" />
-          <figcaption>Full-stack developer · Software tester</figcaption>
+          <Image src="/pfp.webp" alt="Portrait of Khenyshi Hinlog" fill priority sizes="(max-width: 760px) 50vw, (max-width: 1080px) 34vw, 360px" className="portrait" />
+          <figcaption>Full-stack developer</figcaption>
         </figure>
       </section>
 
@@ -76,6 +77,8 @@ export default function HomePage() {
         <div><p className="eyebrow">Continued learning</p><h2 id="learning-title" className="subheading">Recent credentials.</h2></div>
         <div className="certificate-list">{certificates.slice(0, 5).map((certificate) => <a key={certificate.title} href={certificate.credentialUrl} target="_blank" rel="noreferrer"><span><strong>{certificate.title}</strong><small>{certificate.issuer}</small></span><span>{certificate.date} <ArrowUpRight size={14} /></span></a>)}</div>
       </section>
+
+      <GithubSection />
 
       <section id="contact" className="contact shell"><p className="eyebrow">Have a project in mind?</p><h2>Let&apos;s make something<br />clear and useful.</h2><a className="button button-primary" href="mailto:hinlogkhenyshi@gmail.com"><Mail size={16} /> Email me</a></section>
       <footer className="footer shell"><p>© {new Date().getFullYear()} Khenyshi Hinlog</p><div>{socialLinks.map((link) => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label}</a>)}</div></footer>

@@ -1,0 +1,70 @@
+body { overflow-x: hidden; }
+img, svg { max-width: 100%; }
+.site-header { position: sticky; top: 0; z-index: 50; background: color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.hero-copy, .project-body, .about-copy, .timeline-item > div, .skills-list > div > * { min-width: 0; }
+.project h3, .certificate-list strong, .skills-list p, .timeline-item p { overflow-wrap: anywhere; }
+.site-header a, .project-links a, .certificate-list a, .footer a { touch-action: manipulation; }
+.github-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.5rem; font-size: .75rem; font-weight: 700; }
+.github-calendar { min-width: 0; overflow-x: auto; padding: 1.5rem 0 .5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
+.github-calendar > article { min-width: 720px; }
+.github-calendar-loading { width: 720px; height: 128px; border: 1px solid var(--line); }
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .shell { width: min(100% - 64px, 1180px); }
+  .hero { grid-template-columns: minmax(0, 1.15fr) minmax(240px, .65fr); gap: 5vw; min-height: auto; padding-block: 6rem; }
+  .hero h1 { font-size: clamp(3.7rem, 7.4vw, 5.6rem); }
+  .section { padding-block: 6.5rem; }
+  .section-heading { grid-template-columns: 56px 1fr; }
+  .project { grid-template-columns: 56px minmax(0, 1fr) 105px; gap: 1rem; }
+  .about-grid { gap: 5vw; }
+  .about-heading { grid-template-columns: 56px 1fr; }
+  .split-section { grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); gap: 5vw; }
+  .skills-list > div { grid-template-columns: 150px 1fr; }
+}
+
+@media (max-width: 760px) {
+  html { scroll-padding-top: 5rem; }
+  .site-header nav a { display: flex; align-items: center; min-height: 44px; }
+  .hero { display: flex; flex-direction: column; align-items: flex-start; gap: 1.75rem; padding-top: clamp(3.5rem, 12vw, 5rem); }
+  .portrait-wrap { --mobile-portrait-size: clamp(180px, 50vw, 320px); order: -1; width: var(--mobile-portrait-size); height: var(--mobile-portrait-size); aspect-ratio: 1; flex: 0 0 var(--mobile-portrait-size); }
+  .portrait { object-position: center 28%; }
+  .portrait-wrap figcaption { display: none; }
+  .hero h1 { font-size: clamp(2.75rem, 11vw, 4rem); line-height: .96; letter-spacing: -.055em; }
+  .hero-intro { margin-top: 1.75rem; font-size: 1rem; line-height: 1.65; }
+  .hero-actions { flex-wrap: wrap; row-gap: 1.25rem; }
+  .button { min-height: 44px; }
+  .section-heading h2, .contact h2 { font-size: clamp(2.4rem, 12vw, 4rem); }
+  .project { padding-block: 1.8rem; }
+  .project-title-row { align-items: flex-start; flex-wrap: wrap; gap: .6rem; }
+  .project-body > p { font-size: .94rem; }
+  .project-links { flex-wrap: wrap; gap: .3rem 1.25rem; }
+  .project-links a { min-height: 40px; }
+  .timeline-item { padding-bottom: 2rem; margin-bottom: 2rem; }
+  .certificate-list a { min-height: 64px; }
+  .certificate-list a > span:last-child { flex: none; }
+  .footer { align-items: center; gap: 1.5rem; }
+  .footer a { display: inline-flex; align-items: center; min-height: 40px; }
+}
+
+@media (max-width: 480px) {
+  .shell { width: calc(100% - 28px); }
+  .site-header nav { gap: .8rem; font-size: .76rem; }
+  .hero h1 { font-size: clamp(2.55rem, 11vw, 3.35rem); }
+  .eyebrow { font-size: .66rem; line-height: 1.5; }
+  .hero-actions { align-items: flex-start; flex-direction: column; gap: .75rem; }
+  .hero-actions .button { width: 100%; }
+  .hero-actions .text-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .section-heading, .about-heading { grid-template-columns: 30px minmax(0, 1fr); }
+  .project { grid-template-columns: 28px minmax(0, 1fr); }
+  .about-copy { padding-left: 30px; }
+  .certificate-list a { gap: .65rem; }
+  .certificate-list a > span:last-child { font-size: .7rem; }
+  .contact h2 br { display: none; }
+  .footer { align-items: flex-start; flex-direction: column; }
+}
+
+@media (max-width: 350px) {
+  .site-header nav a:nth-child(2) { display: none; }
+  .hero h1 { font-size: 2.35rem; }
+  .section-heading h2, .contact h2 { font-size: 2.25rem; }
+}
