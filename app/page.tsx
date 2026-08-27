@@ -30,7 +30,7 @@ export default function HomePage() {
         </div>
         <figure className="portrait-wrap">
           <Image
-            src="/pfp.png"
+            src="/pfp.svg"
             alt="Portrait of Khenyshi Hinlog"
             fill
             priority
