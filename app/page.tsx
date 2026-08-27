@@ -29,7 +29,14 @@ export default function HomePage() {
           </div>
         </div>
         <figure className="portrait-wrap">
-          <Image src="/pfp.webp" alt="Portrait of Khenyshi Hinlog" fill priority sizes="(max-width: 760px) 50vw, (max-width: 1080px) 34vw, 360px" className="portrait" />
+          <Image
+            src="/pfp.png"
+            alt="Portrait of Khenyshi Hinlog"
+            fill
+            priority
+            sizes="(max-width: 760px) 50vw, 30vw"
+            className="portrait"
+          />
           <figcaption>Full-stack developer</figcaption>
         </figure>
       </section>
