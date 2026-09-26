@@ -1,8 +1,3 @@
-export type NavItem = {
-  id: string;
-  label: string;
-};
-
 export type SkillGroup = {
   title: string;
   items: string[];
@@ -36,14 +31,6 @@ export type Certificate = {
   credentialId?: string;
   credentialUrl?: string;
 };
-
-export const navItems: NavItem[] = [
-  { id: "home", label: "Home" },
-  { id: "skills", label: "Tech" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "certificates", label: "Certificates" },
-];
 
 export const skills: SkillGroup[] = [
   {
