@@ -547,6 +547,214 @@
   line-height: 1.6;
 }
 
+.notes-list {
+  border-top: 1px solid var(--line);
+}
+
+.note-card {
+  border-bottom: 1px solid var(--line);
+}
+
+.note-card-link {
+  display: grid;
+  grid-template-columns: 2.4rem minmax(0, 1fr) 1.25rem;
+  align-items: start;
+  gap: .85rem;
+  padding: 1.3rem .15rem;
+}
+
+.note-card-icon {
+  display: grid;
+  width: 2.3rem;
+  height: 2.3rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: #46715c;
+}
+
+.note-card-copy {
+  display: grid;
+  gap: .35rem;
+}
+
+.note-card-title {
+  font-size: 1rem;
+  font-weight: 650;
+  letter-spacing: -.015em;
+}
+
+.note-card-excerpt {
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+.note-card-arrow {
+  justify-self: end;
+  color: var(--muted);
+}
+
+.note-card-link:hover .note-card-title,
+.note-card-link:hover .note-card-arrow {
+  color: #46715c;
+}
+
+.note-back-link {
+  display: inline-flex;
+  min-height: 2.5rem;
+  align-items: center;
+  gap: .45rem;
+  margin-bottom: 1.6rem;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 650;
+}
+
+.note-back-link:hover {
+  color: #46715c;
+}
+
+.note-detail-heading {
+  padding-block: 1rem 1.8rem;
+}
+
+.note-detail-heading .eyebrow {
+  margin-bottom: .7rem;
+}
+
+.note-detail-heading h1,
+.markdown-content h1 {
+  margin: 0;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
+  font-weight: 500;
+  letter-spacing: -.06em;
+  line-height: 1.02;
+  overflow-wrap: anywhere;
+}
+
+.note-detail-heading h1 {
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.markdown-content {
+  max-width: 880px;
+  padding-block: 1rem 5rem;
+  color: var(--ink);
+  font-size: .98rem;
+  line-height: 1.8;
+}
+
+.markdown-content > h1:first-child {
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.markdown-content h2 {
+  margin: 2.6rem 0 .8rem;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 550;
+  letter-spacing: -.04em;
+  line-height: 1.15;
+}
+
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+  margin: 2rem 0 .65rem;
+  font-weight: 650;
+  letter-spacing: -.02em;
+  line-height: 1.25;
+}
+
+.markdown-content p,
+.markdown-content ul,
+.markdown-content ol {
+  margin: 1rem 0;
+}
+
+.markdown-content ul,
+.markdown-content ol {
+  padding-left: 1.45rem;
+}
+
+.markdown-content li + li {
+  margin-top: .35rem;
+}
+
+.markdown-content a {
+  color: #315640;
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, #46715c 45%, transparent);
+  text-underline-offset: .18em;
+}
+
+.markdown-content blockquote {
+  margin: 1.5rem 0;
+  padding: .15rem 0 .15rem 1.1rem;
+  border-left: 2px solid #46715c;
+  color: var(--muted);
+}
+
+.markdown-content blockquote > :first-child {
+  margin-top: 0;
+}
+
+.markdown-content pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--ink) 4%, var(--paper));
+  font-size: .82rem;
+  line-height: 1.65;
+}
+
+.markdown-content :not(pre) > code {
+  padding: .12rem .3rem;
+  background: color-mix(in srgb, var(--ink) 6%, var(--paper));
+  font-size: .86em;
+  overflow-wrap: anywhere;
+}
+
+.markdown-content table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: .85rem;
+}
+
+.markdown-content th,
+.markdown-content td {
+  min-width: 7rem;
+  padding: .55rem .75rem;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.markdown-content th {
+  background: color-mix(in srgb, var(--ink) 4%, var(--paper));
+  font-weight: 650;
+}
+
+.markdown-content hr {
+  height: 1px;
+  margin: 2rem 0;
+  border: 0;
+  background: var(--line);
+}
+
+.markdown-content img {
+  height: auto;
+}
+
+.markdown-content input[type="checkbox"] {
+  accent-color: #46715c;
+}
+
 @media (max-width: 960px) and (min-width: 761px) {
   .portfolio-shell {
     --sidebar-width: 14.5rem;
