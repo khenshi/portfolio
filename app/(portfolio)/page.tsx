@@ -9,6 +9,10 @@ import { ExperienceEntry } from "@/components/portfolio/ExperienceEntry";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
 import { ProjectCarousel } from "@/components/portfolio/ProjectCarousel";
 
+const featuredCertificates = certificates
+  .slice(0, 5)
+  .filter((certificate) => certificate.title !== "Learn React");
+
 export default function OverviewPage() {
   return (
     <>
@@ -39,15 +43,19 @@ export default function OverviewPage() {
 
       <section className="section shell overview-projects-section" aria-labelledby="projects-title">
         <div className="section-heading">
-          <p className="section-number">01</p>
-          <div><p className="eyebrow">Selected work</p><h2 id="projects-title">Featured projects</h2></div>
+          <div className="overview-projects-heading-row">
+            <div>
+              <p className="eyebrow">Selected work</p>
+              <h2 id="projects-title">Featured projects</h2>
+            </div>
+            <Link className="section-more-link" href="/projects">View All Projects <ArrowUpRight size={15} /></Link>
+          </div>
         </div>
         <ProjectCarousel label="Project showcase">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} variant="overview" />
           ))}
         </ProjectCarousel>
-        <Link className="section-more-link" href="/projects">View All Projects <ArrowUpRight size={15} /></Link>
       </section>
 
       <section className="section shell split-section" aria-labelledby="experience-title">
@@ -59,22 +67,20 @@ export default function OverviewPage() {
         <div className="experience-list">
           {experience.map((item) => <ExperienceEntry key={item.role} item={item} compact />)}
         </div>
-      </section>
-
-      <section className="section shell capabilities-overview" aria-labelledby="skills-title">
-        <div className="overview-section-heading">
-          <p className="eyebrow">Capabilities</p>
-          <h2 id="skills-title" className="subheading">Tools &amp; technologies</h2>
-        </div>
-        <div className="capability-grid">
-          {skills.map((group) => (
-            <article className="capability-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <ul className="capability-tags" aria-label={group.title}>
-                {group.items.map((item) => <li key={item}>{item}</li>)}
-              </ul>
-            </article>
-          ))}
+        <div className="overview-tech-stack" aria-labelledby="skills-title">
+          <div className="overview-tech-divider">
+            <h3 id="skills-title">Tech stack</h3>
+          </div>
+          <div className="capability-grid">
+            {skills.map((group) => (
+              <article className="capability-group" key={group.title}>
+                <h4>{group.title}</h4>
+                <ul className="capability-tags" aria-label={group.title}>
+                  {group.items.map((item) => <li key={item}>{item}</li>)}
+                </ul>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -87,7 +93,7 @@ export default function OverviewPage() {
           <Link className="section-more-link" href="/certifications">All certifications <ArrowUpRight size={15} /></Link>
         </div>
         <div className="overview-certification-grid">
-          {certificates.slice(0, 5).map((certificate) => (
+          {featuredCertificates.map((certificate) => (
             <CertificationCard key={certificate.title} certificate={certificate} compact />
           ))}
         </div>

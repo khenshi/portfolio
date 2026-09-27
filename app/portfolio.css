@@ -250,11 +250,26 @@
 }
 
 .overview-projects-section .section-heading {
+  grid-template-columns: minmax(0, 1fr);
   margin-bottom: 1.5rem;
 }
 
 .overview-projects-section .section-heading h2 {
   font-size: clamp(1.8rem, 3.8vw, 3.1rem);
+  white-space: nowrap;
+}
+
+.overview-projects-heading-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+}
+
+.overview-projects-heading-row > .section-more-link {
+  flex: none;
+  margin: 0 0 .15rem;
 }
 
 .overview-projects-section .project-carousel {
@@ -289,10 +304,6 @@
 
 .overview-projects-section .project-card-overview .project-card-action {
   padding-top: .7rem;
-}
-
-.overview-projects-section > .section-more-link {
-  margin-top: .65rem;
 }
 
 .skip-link {
@@ -1058,11 +1069,46 @@
   border-top: 1px solid var(--line);
 }
 
-.capability-group h3 {
+.capability-group h3,
+.capability-group h4 {
   margin: 0 0 .65rem;
   font-size: .82rem;
   font-weight: 700;
   line-height: 1.45;
+}
+
+.overview-tech-stack {
+  grid-column: 1 / -1;
+  min-width: 0;
+  margin-top: .25rem;
+}
+
+.overview-tech-stack .capability-group {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.overview-tech-divider {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: .85rem;
+  margin-bottom: 1rem;
+}
+
+.overview-tech-divider::after {
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.overview-tech-divider h3 {
+  margin: 0;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
 
 .capability-tags {
@@ -1144,7 +1190,7 @@
 
 .overview-certification-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -1203,6 +1249,11 @@
   margin-bottom: 2rem;
 }
 
+.github-section-heading .subheading {
+  max-width: none;
+  white-space: nowrap;
+}
+
 .github-section-heading .eyebrow {
   margin-bottom: .8rem;
 }
@@ -1237,6 +1288,13 @@
   width: 100%;
   min-height: 8rem;
   border: 1px solid var(--line);
+}
+
+@media (min-width: 761px) {
+  .github-calendar .react-activity-calendar__scroll-container {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .contact-actions {
@@ -1707,6 +1765,11 @@
 
   .overview-projects-section .section-heading h2 {
     font-size: clamp(1.8rem, 8vw, 2.75rem);
+    white-space: normal;
+  }
+
+  .overview-projects-heading-row {
+    gap: .35rem 1rem;
   }
 
   .overview-projects-section .project-carousel {
@@ -1801,6 +1864,10 @@
   .github-section-heading {
     gap: .9rem;
     margin-bottom: 1.5rem;
+  }
+
+  .github-section-heading .subheading {
+    white-space: normal;
   }
 }
 
