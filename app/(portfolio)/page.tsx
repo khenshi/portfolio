@@ -7,6 +7,7 @@ import { GithubSection } from "@/components/portfolio/GithubSection";
 import { CertificationCard } from "@/components/portfolio/CertificationCard";
 import { ExperienceEntry } from "@/components/portfolio/ExperienceEntry";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
+import { ProjectCarousel } from "@/components/portfolio/ProjectCarousel";
 
 export default function OverviewPage() {
   return (
@@ -42,11 +43,11 @@ export default function OverviewPage() {
           <p className="section-number">01</p>
           <div><p className="eyebrow">Selected work</p><h2 id="projects-title">Projects with a purpose.</h2></div>
         </div>
-        <div className="project-grid project-grid-compact">
-          {projects.filter((project) => project.featured).map((project) => (
+        <ProjectCarousel label="Project showcase">
+          {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} variant="overview" />
           ))}
-        </div>
+        </ProjectCarousel>
         <Link className="section-more-link" href="/projects">View All Projects <ArrowUpRight size={15} /></Link>
       </section>
 

@@ -254,6 +254,130 @@
   gap: 1rem;
 }
 
+.project-carousel {
+  --project-slide-size: min(42vw, 30rem);
+  perspective: 1200px;
+}
+
+.project-carousel-track {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  padding: 2rem calc((100% - var(--project-slide-size)) / 2) 2.5rem;
+  scroll-padding-inline: calc((100% - var(--project-slide-size)) / 2);
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  scrollbar-color: var(--line) transparent;
+  scrollbar-width: thin;
+}
+
+.project-carousel-track:focus-visible {
+  outline: 2px solid #46715c;
+  outline-offset: 4px;
+}
+
+.project-carousel-slide {
+  position: relative;
+  display: flex;
+  flex: 0 0 var(--project-slide-size);
+  min-width: 0;
+  margin-inline: clamp(-3rem, -4vw, -1.5rem);
+  opacity: .68;
+  scroll-snap-align: center;
+  transform: scale(.84);
+  transform-style: preserve-3d;
+  transition: opacity .25s ease, transform .25s ease;
+}
+
+.project-carousel-slide:first-child {
+  margin-left: 0;
+}
+
+.project-carousel-slide:last-child {
+  margin-right: 0;
+}
+
+.project-carousel-slide[data-active="true"] {
+  z-index: 2;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.project-carousel-slide[data-side="before"]:not([data-active="true"]) {
+  transform: scale(.84) rotateY(9deg);
+  transform-origin: right center;
+}
+
+.project-carousel-slide[data-side="after"]:not([data-active="true"]) {
+  transform: scale(.84) rotateY(-9deg);
+  transform-origin: left center;
+}
+
+.project-carousel-slide > .project-card {
+  width: 100%;
+}
+
+.project-carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .55rem;
+  margin-top: .25rem;
+}
+
+.project-carousel-position {
+  margin-right: .45rem;
+  color: var(--muted);
+  font-size: .7rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-carousel-position span {
+  margin-inline: .2rem;
+  color: var(--line);
+}
+
+.project-carousel-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.project-carousel-control {
+  display: inline-grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 34%, var(--paper));
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color .18s ease, color .18s ease, opacity .18s ease;
+}
+
+.project-carousel-control:hover:not(:disabled),
+.project-carousel-control:focus-visible {
+  border-color: #46715c;
+  color: #46715c;
+}
+
+.project-carousel-control:focus-visible {
+  outline: 2px solid #46715c;
+  outline-offset: 2px;
+}
+
+.project-carousel-control:disabled {
+  cursor: default;
+  opacity: .45;
+}
+
 .project-card {
   display: flex;
   min-width: 0;
@@ -1327,6 +1451,27 @@
     grid-template-columns: 1fr;
   }
 
+  .project-carousel {
+    --project-slide-size: min(82vw, calc(100vw - 6rem), 27rem);
+  }
+
+  .project-carousel-slide {
+    margin-inline: -1.5rem;
+    transform: scale(.9);
+  }
+
+  .project-carousel-slide[data-side="before"]:not([data-active="true"]) {
+    transform: scale(.9) rotateY(5deg);
+  }
+
+  .project-carousel-slide[data-side="after"]:not([data-active="true"]) {
+    transform: scale(.9) rotateY(-5deg);
+  }
+
+  .project-carousel-slide[data-active="true"] {
+    transform: scale(1);
+  }
+
   .experience-entry,
   .experience-entry.is-compact {
     grid-template-columns: 1fr;
@@ -1351,8 +1496,16 @@
     min-height: 14rem;
   }
 
+  .project-carousel-track {
+    padding-block: 1.5rem 2rem;
+  }
+
   .project-card {
     padding: 1.15rem;
+  }
+
+  .project-carousel-slide {
+    margin-inline: -1rem;
   }
 
   .overview-certification-list .certification-card-heading {
@@ -1367,5 +1520,14 @@
   .portfolio-sidebar,
   .project-card {
     transition: none;
+  }
+
+  .project-carousel-slide,
+  .project-carousel-control {
+    transition: none;
+  }
+
+  .project-carousel-track {
+    scroll-behavior: auto;
   }
 }
