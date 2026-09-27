@@ -43,14 +43,21 @@ function ProjectLink({ href, children }: { href: string; children: React.ReactNo
 
 export function ProjectDetail({ project, previousProject, nextProject }: ProjectDetailProps) {
   const gallery = project.caseStudy?.gallery ?? [];
-  const gallerySlotCount = Math.max(3, gallery.length);
   const heroImage = project.thumbnail ?? gallery[0];
   const sourceLinkIsReal = project.links.github.includes("github.com/khenshi/");
-  const problem = project.caseStudy?.problem ?? project.caseStudy?.background;
-  const solution = project.caseStudy?.solution ?? project.caseStudy?.approach;
-  const outcomes = project.caseStudy?.outcomes ?? [];
-  const learnings = project.caseStudy?.learnings ?? [];
   const caseStudyPath = `data/projects/${project.slug}.ts`;
+  const caseStudy = project.caseStudy;
+  const overview = caseStudy?.overview ?? [
+    caseStudy?.problem ?? caseStudy?.background,
+    project.description,
+    caseStudy?.solution ?? caseStudy?.approach,
+  ].filter(Boolean).join(" ");
+  const technicalOverview = caseStudy?.approach ?? caseStudy?.solution;
+  const technicalDecisions = caseStudy?.technicalDecisions?.slice(0, 3) ?? [];
+  const challengesAndLearnings = [
+    ...(caseStudy?.challengesAndSolutions ?? []).map(({ challenge, solution: resolution }) => `${challenge} — ${resolution}`),
+    ...(caseStudy?.learnings ?? []),
+  ].slice(0, 4);
 
   return (
     <article className="project-detail">
@@ -100,139 +107,49 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
             {project.timeline ?? "Not provided"}
           </p>
         </div>
-        <div className="project-detail-meta-item project-detail-tech">
-          <h2>Tech stack</h2>
-          <ul className="tech-list" aria-label={`${project.title} technologies`}>
-            {project.tech.map((technology) => <li key={technology}>{technology}</li>)}
-          </ul>
-        </div>
       </section>
 
       <div className="project-detail-content page-section shell">
         <DetailSection number="01" title="Project Overview" id="project-overview-title">
-          <p className="project-detail-copy">
-            {project.caseStudy?.overview ?? project.description}
-          </p>
+          <p className="project-detail-copy">{overview}</p>
         </DetailSection>
 
-        <DetailSection number="02" title="Problem / Background" id="project-background-title">
-          {problem ? (
-            <p className="project-detail-copy">{problem}</p>
-          ) : (
-            <Placeholder>Add project context in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
-
-        <DetailSection number="03" title="Solution / Approach" id="project-approach-title">
-          {solution ? (
-            <p className="project-detail-copy">{solution}</p>
-          ) : (
-            <Placeholder>Add your approach in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
-
-        <DetailSection number="04" title="Key Features" id="project-features-title">
-          {project.features.length > 0 ? (
+        {project.features.length > 0 && (
+          <DetailSection number="02" title="Key Features" id="project-features-title">
             <ul className="project-detail-list">
-              {project.features.map((feature) => <li key={feature}>{feature}</li>)}
+              {project.features.slice(0, 6).map((feature) => <li key={feature}>{feature}</li>)}
             </ul>
-          ) : (
-            <Placeholder>Add key features in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
+          </DetailSection>
+        )}
 
-        <DetailSection number="05" title="Technical Decisions" id="project-decisions-title">
-          {project.caseStudy?.technicalDecisions?.length ? (
-            <ul className="project-detail-list">
-              {project.caseStudy.technicalDecisions.map((decision) => <li key={decision}>{decision}</li>)}
-            </ul>
-          ) : (
-            <Placeholder>Add technical decisions in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
-
-        <DetailSection number="06" title="Challenges & Solutions" id="project-challenges-title">
-          {project.caseStudy?.challengesAndSolutions?.length ? (
-            <div className="project-challenge-list">
-              {project.caseStudy.challengesAndSolutions.map(({ challenge, solution: resolution }) => (
-                <article className="project-challenge" key={challenge}>
-                  <div>
-                    <h3>Challenge</h3>
-                    <p>{challenge}</p>
-                  </div>
-                  <div>
-                    <h3>Solution</h3>
-                    <p>{resolution}</p>
-                  </div>
-                </article>
-              ))}
-            </div>
-          ) : (
-            <Placeholder>Add challenge and solution pairs in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
-
-        <DetailSection number="07" title="Project Gallery" id="project-gallery-title">
-          <div className="project-gallery-grid">
-            {Array.from({ length: gallerySlotCount }, (_, index) => {
-              const image = gallery[index];
-              const label = `Screenshot ${String(index + 1).padStart(2, "0")}`;
-
-              return (
-                <figure className="project-gallery-card" key={image?.src ?? label}>
-                  <ProjectMedia
-                    image={image}
-                    title={project.title}
-                    placeholderLabel={image ? "Screenshot not added yet" : label}
-                    variant="gallery"
-                    sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                  />
-                  {image?.caption && <figcaption>{image.caption}</figcaption>}
-                </figure>
-              );
-            })}
-          </div>
-          {gallery.length === 0 && (
-            <p className="project-gallery-guidance">
-              Add screenshots under <code>public/projects/{project.slug}/</code> and list them in <code>{caseStudyPath}</code>.
-            </p>
-          )}
-        </DetailSection>
-
-        <DetailSection number="08" title="Outcomes & Learnings" id="project-outcomes-title">
-          <div className="project-outcomes-grid">
+        <DetailSection number="03" title="Technical Overview" id="project-technical-title">
+          <h3 className="project-detail-stack-label">Tech stack</h3>
+          <ul className="tech-list project-detail-stack" aria-label={`${project.title} technologies`}>
+            {project.tech.map((technology) => <li key={technology}>{technology}</li>)}
+          </ul>
+          <div className="project-technical-grid">
             <div>
-              <h3>Outcomes</h3>
-              {outcomes.length > 0 ? (
-                <ul className="project-detail-list">
-                  {outcomes.map((outcome) => <li key={outcome}>{outcome}</li>)}
-                </ul>
-              ) : (
-                <Placeholder>Add verified outcomes in <code>{caseStudyPath}</code>.</Placeholder>
-              )}
+              <h3>Architecture &amp; approach</h3>
+              {technicalOverview && <p className="project-detail-copy">{technicalOverview}</p>}
             </div>
-            <div>
-              <h3>Learnings</h3>
-              {learnings.length > 0 ? (
+            {technicalDecisions.length > 0 && (
+              <div>
+                <h3>Key decisions</h3>
                 <ul className="project-detail-list">
-                  {learnings.map((learning) => <li key={learning}>{learning}</li>)}
+                  {technicalDecisions.map((decision) => <li key={decision}>{decision}</li>)}
                 </ul>
-              ) : (
-                <Placeholder>Add learnings in <code>{caseStudyPath}</code>.</Placeholder>
-              )}
-            </div>
+              </div>
+            )}
           </div>
         </DetailSection>
 
-        <DetailSection number="09" title="Future Improvements" id="project-future-title">
-          {project.caseStudy?.futureImprovements?.length ? (
+        {challengesAndLearnings.length > 0 && (
+          <DetailSection number="04" title="Challenges & Learnings" id="project-challenges-title">
             <ul className="project-detail-list">
-              {project.caseStudy.futureImprovements.map((improvement) => <li key={improvement}>{improvement}</li>)}
+              {challengesAndLearnings.map((item) => <li key={item}>{item}</li>)}
             </ul>
-          ) : (
-            <Placeholder>Add future improvements in <code>{caseStudyPath}</code>.</Placeholder>
-          )}
-        </DetailSection>
+          </DetailSection>
+        )}
 
         <nav className="project-pagination" aria-label="Project navigation">
           {previousProject ? (

@@ -782,17 +782,9 @@
   line-height: 1.55;
 }
 
-.project-detail-tech {
-  grid-column: 1 / -1;
-}
-
-.project-detail-meta .tech-list {
-  margin-top: .6rem;
-}
-
 .project-detail-content {
   display: grid;
-  gap: 2.75rem;
+  gap: 2.4rem;
   padding-top: 2.5rem;
 }
 
@@ -836,6 +828,41 @@
   line-height: 1.7;
 }
 
+.project-detail-stack-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.project-detail-stack {
+  margin-top: .65rem;
+}
+
+.project-technical-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 1.6rem;
+}
+
+.project-technical-grid > div {
+  min-width: 0;
+}
+
+.project-technical-grid h3 {
+  margin: 0 0 .7rem;
+  font-size: .86rem;
+  font-weight: 700;
+}
+
+.project-technical-grid .project-detail-copy {
+  font-size: .86rem;
+  line-height: 1.65;
+}
+
 .project-detail-placeholder {
   margin: 0;
   padding: .75rem .95rem;
@@ -844,65 +871,6 @@
   color: var(--muted);
   font-size: .82rem;
   line-height: 1.5;
-}
-
-.project-challenge-list,
-.project-outcomes-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.project-challenge,
-.project-outcomes-grid > div {
-  min-width: 0;
-  padding: 1rem;
-  border: 1px solid var(--line);
-  background: color-mix(in srgb, var(--white) 26%, var(--paper));
-}
-
-.project-challenge {
-  display: grid;
-  gap: 1.25rem;
-}
-
-.project-challenge h3,
-.project-outcomes-grid h3 {
-  margin: 0 0 .55rem;
-  font-size: .82rem;
-  font-weight: 700;
-}
-
-.project-challenge p {
-  margin: 0;
-  color: var(--muted);
-  font-size: .86rem;
-  line-height: 1.65;
-}
-
-.project-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
-  gap: 1rem;
-}
-
-.project-gallery-card {
-  min-width: 0;
-  margin: 0;
-}
-
-.project-gallery-card figcaption {
-  margin-top: .65rem;
-  color: var(--muted);
-  font-size: .74rem;
-  line-height: 1.5;
-}
-
-.project-gallery-guidance {
-  margin: 1rem 0 0;
-  color: var(--muted);
-  font-size: .75rem;
-  line-height: 1.6;
 }
 
 .project-pagination {
@@ -1805,13 +1773,13 @@
   }
 
   .project-detail-content {
-    gap: 2.2rem;
+    gap: 2rem;
     padding-top: 1.75rem;
   }
 
-  .project-challenge-list,
-  .project-outcomes-grid {
+  .project-technical-grid {
     grid-template-columns: 1fr;
+    gap: 1.4rem;
   }
 
   .project-grid,
