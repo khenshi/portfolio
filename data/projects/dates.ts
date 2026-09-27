@@ -50,4 +50,8 @@ export const dates: Project = {
       },
     ],
   },
+  thumbnail: {
+    src: "/images/dates.webp",
+    alt: "Screenshot of the Dates application interface",
+  },
 };

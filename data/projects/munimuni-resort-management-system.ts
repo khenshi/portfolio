@@ -51,4 +51,8 @@ export const munimuniResortManagementSystem: Project = {
       },
     ],
   },
+  thumbnail: {
+    src: "/images/munimuni.webp",
+    alt: "Screenshot of the MuniMuni Resort Management System application interface",
+  },
 };

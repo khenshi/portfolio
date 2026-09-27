@@ -52,4 +52,8 @@ export const truthLayer: Project = {
       },
     ],
   },
+  thumbnail: {
+    src: "/images/truthlayer.webp",
+    alt: "Screenshot of the TruthLayer application interface",
+  },
 };

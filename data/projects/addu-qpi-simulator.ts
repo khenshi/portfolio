@@ -50,4 +50,9 @@ export const adduQpiSimulator: Project = {
       },
     ],
   },
+  thumbnail: {
+    src: "/images/addu-qpi.webp",
+    alt: "Screenshot of the AdDU QPI Simulator application interface",
+  },
+  status: "Active development",
 };

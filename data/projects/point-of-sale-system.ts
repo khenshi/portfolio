@@ -46,4 +46,8 @@ export const pointOfSaleSystem: Project = {
       },
     ],
   },
+  thumbnail: {
+    src: "/images/POS.webp",
+    alt: "Screenshot of the Point of Sale System application interface",
+  },
 };

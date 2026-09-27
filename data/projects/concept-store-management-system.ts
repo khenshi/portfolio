@@ -75,33 +75,9 @@ export const conceptStoreManagementSystem: Project =
       "Developed sales reporting for products, merchants, payment methods, and sales trends.",
       "Designed settlement, payout, and rent workflows for merchant financial management.",
     ],
-
-    gallery: [
-      {
-        src: "/projects/kapwesto/dashboard.png",
-        alt: "Kapwesto concept store management dashboard",
-        caption: "Centralized overview of store operations",
-      },
-      {
-        src: "/projects/kapwesto/merchants.png",
-        alt: "Kapwesto merchant management page",
-        caption: "Merchant, space, and agreement management",
-      },
-      {
-        src: "/projects/kapwesto/inventory.png",
-        alt: "Kapwesto inventory management page",
-        caption: "Branch inventory and stock movement tracking",
-      },
-      {
-        src: "/projects/kapwesto/pos.png",
-        alt: "Kapwesto point-of-sale interface",
-        caption: "Point-of-sale workflow for concept store transactions",
-      },
-      {
-        src: "/projects/kapwesto/reports.png",
-        alt: "Kapwesto sales reports dashboard",
-        caption: "Sales trends and merchant performance reporting",
-      },
-    ],
   },
+    thumbnail: {
+      src: "/images/kapwesto.webp",
+      alt: "Screenshot of the Kapwesto Concept Store Management System application interface",
+    }
 }
