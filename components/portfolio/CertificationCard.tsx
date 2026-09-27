@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Building2 } from "lucide-react";
 
 import type { Certificate } from "@/data/portfolio";
 
@@ -10,12 +10,17 @@ type CertificationCardProps = {
 export function CertificationCard({ certificate, compact = false }: CertificationCardProps) {
   return (
     <article className={`certification-card${compact ? " is-compact" : ""}`}>
+      {compact && (
+        <span className="certification-logo-placeholder" aria-hidden="true">
+          <Building2 size={18} />
+        </span>
+      )}
       <div className="certification-card-heading">
         <div>
           <h2>{certificate.title}</h2>
           <p>{certificate.issuer}</p>
         </div>
-        <span className="certification-date">{certificate.date}</span>
+        {!compact && <span className="certification-date">{certificate.date}</span>}
       </div>
       {!compact && certificate.credentialId && (
         <p className="credential-id">Credential ID: {certificate.credentialId}</p>

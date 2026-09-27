@@ -912,13 +912,6 @@
   line-height: 1.65;
 }
 
-.experience-summary {
-  margin: .8rem 0 0;
-  color: var(--muted);
-  font-size: .86rem;
-  line-height: 1.65;
-}
-
 .experience-entry.is-compact {
   grid-template-columns: 105px minmax(0, 1fr);
   gap: 1rem;
@@ -930,8 +923,68 @@
   font-size: 1rem;
 }
 
-.experience-entry.is-compact .experience-summary {
-  font-size: .8rem;
+
+.overview-section-heading {
+  margin-bottom: 3rem;
+}
+
+.overview-section-heading > .eyebrow {
+  margin-bottom: .8rem;
+}
+
+.overview-section-heading .subheading {
+  max-width: 720px;
+}
+
+.overview-section-heading-actions {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.overview-section-heading-actions .section-more-link {
+  flex: none;
+  margin: 0 0 .2rem;
+}
+
+.capability-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.capability-group {
+  min-width: 0;
+  padding-top: .9rem;
+  border-top: 1px solid var(--line);
+}
+
+.capability-group h3 {
+  margin: 0 0 .9rem;
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.capability-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .45rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.capability-tags li {
+  max-width: 100%;
+  padding: .35rem .5rem;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 34%, var(--paper));
+  color: var(--muted);
+  font-size: .66rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .certification-grid {
@@ -991,32 +1044,129 @@
   font-weight: 700;
 }
 
-.overview-certification-list {
+.overview-certification-grid {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
 }
 
-.overview-certification-list .certification-card {
+.certification-card.is-compact {
+  min-height: 13.5rem;
+  gap: .9rem;
+  transition: border-color .18s ease, transform .18s ease;
+}
+
+.certification-card.is-compact:hover,
+.certification-card.is-compact:focus-within {
+  transform: translateY(-2px);
+  border-color: color-mix(in srgb, #46715c 45%, var(--line));
+}
+
+.certification-logo-placeholder {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  place-items: center;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 34%, var(--paper));
+  color: #46715c;
+}
+
+.certification-card.is-compact .certification-card-heading {
+  display: block;
+}
+
+.certification-card.is-compact h2 {
+  font-size: .96rem;
+}
+
+.certification-card.is-compact > a {
+  display: inline-flex;
   align-items: center;
-  gap: .6rem 1rem;
-  padding: .95rem 0;
-  border-width: 1px 0 0;
-  background: transparent;
-}
-
-.overview-certification-list .certification-card:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.overview-certification-list .certification-card-heading {
-  align-items: center;
-}
-
-.overview-certification-list .certification-card > a {
-  grid-column: 1 / -1;
-  min-height: 1.8rem;
+  gap: .35rem;
   padding-top: 0;
+  color: var(--ink);
+}
+
+.certification-card.is-compact > a:hover {
+  color: #46715c;
+}
+
+.github-section {
+  display: block;
+}
+
+.github-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.github-section-heading .eyebrow {
+  margin-bottom: .8rem;
+}
+
+.github-section-heading .github-link {
+  flex: none;
+  margin: 0 0 .2rem;
+}
+
+.github-calendar {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  padding: 1.5rem 0 .5rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.github-calendar > article {
+  width: 100%;
+  min-width: 0;
+}
+
+.github-calendar svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.github-calendar-loading {
+  width: 100%;
+  min-height: 8rem;
+  border: 1px solid var(--line);
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  margin-top: 2.5rem;
+}
+
+.contact-actions .button {
+  min-height: 2.8rem;
+}
+
+.contact-actions .button-secondary {
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--white) 34%, var(--paper));
+  color: var(--ink);
+}
+
+.contact-actions .button-secondary:hover {
+  border-color: #46715c;
+  color: #46715c;
+}
+
+.contact .contact-actions .button {
+  margin-top: 0;
 }
 
 .notes-empty-state {
@@ -1478,8 +1628,24 @@
     gap: .45rem;
   }
 
-  .overview-certification-list .certification-card {
-    grid-template-columns: minmax(0, 1fr) auto;
+  .capability-grid,
+  .overview-certification-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-section-heading-actions,
+  .github-section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .overview-section-heading-actions {
+    gap: .7rem;
+  }
+
+  .github-section-heading {
+    gap: .9rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -1508,17 +1674,20 @@
     margin-inline: -1rem;
   }
 
-  .overview-certification-list .certification-card-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: .25rem;
+}
+
+@media (min-width: 761px) and (max-width: 1080px) {
+  .capability-grid,
+  .overview-certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .sidebar-link,
   .portfolio-sidebar,
-  .project-card {
+  .project-card,
+  .certification-card.is-compact {
     transition: none;
   }
 

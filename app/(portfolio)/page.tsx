@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, Mail } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Linkedin, Mail } from "lucide-react";
 
 import { certificates, experience, projects, skills } from "@/data/portfolio";
 import { GithubSection } from "@/components/portfolio/GithubSection";
@@ -51,18 +51,6 @@ export default function OverviewPage() {
         <Link className="section-more-link" href="/projects">View All Projects <ArrowUpRight size={15} /></Link>
       </section>
 
-      <section className="section shell about-grid" aria-labelledby="about-title">
-        <div className="section-heading about-heading">
-          <p className="section-number">02</p>
-          <div><p className="eyebrow">About</p><h2 id="about-title">Curious by default.<br />Practical by choice.</h2></div>
-        </div>
-        <div className="about-copy">
-          <p className="lead">I enjoy taking a product from a rough idea to something people can actually use.</p>
-          <p>My work spans web applications, testing, databases, and applied AI. I&apos;m currently studying Computer Science at Ateneo de Davao University while building independent and team projects.</p>
-          <p>I value straightforward communication, maintainable code, and being honest about what a product can—and cannot—do.</p>
-        </div>
-      </section>
-
       <section className="section shell split-section" aria-labelledby="experience-title">
         <div>
           <p className="eyebrow">Experience & education</p>
@@ -74,22 +62,32 @@ export default function OverviewPage() {
         </div>
       </section>
 
-      <section className="section shell split-section" aria-labelledby="skills-title">
-        <div><p className="eyebrow">Capabilities</p><h2 id="skills-title" className="subheading">Tools I work with.</h2></div>
-        <div className="skills-list">
+      <section className="section shell capabilities-overview" aria-labelledby="skills-title">
+        <div className="overview-section-heading">
+          <p className="eyebrow">Capabilities</p>
+          <h2 id="skills-title" className="subheading">Tools I work with.</h2>
+        </div>
+        <div className="capability-grid">
           {skills.map((group) => (
-            <div key={group.title}><h3>{group.title}</h3><p>{group.items.join(", ")}</p></div>
+            <article className="capability-group" key={group.title}>
+              <h3>{group.title}</h3>
+              <ul className="capability-tags" aria-label={group.title}>
+                {group.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="section shell split-section certificates" aria-labelledby="certifications-title">
-        <div>
-          <p className="eyebrow">Continued learning</p>
-          <h2 id="certifications-title" className="subheading">Recent credentials.</h2>
+      <section className="section shell overview-certifications" aria-labelledby="certifications-title">
+        <div className="overview-section-heading overview-section-heading-actions">
+          <div>
+            <p className="eyebrow">Continued learning</p>
+            <h2 id="certifications-title" className="subheading">Recent credentials.</h2>
+          </div>
           <Link className="section-more-link" href="/certifications">All certifications <ArrowUpRight size={15} /></Link>
         </div>
-        <div className="overview-certification-list">
+        <div className="overview-certification-grid">
           {certificates.slice(0, 5).map((certificate) => (
             <CertificationCard key={certificate.title} certificate={certificate} compact />
           ))}
@@ -101,7 +99,17 @@ export default function OverviewPage() {
       <section className="contact shell" aria-labelledby="contact-title">
         <p className="eyebrow">Have a project in mind?</p>
         <h2 id="contact-title">Let&apos;s make something<br />clear and useful.</h2>
-        <a className="button button-primary" href="mailto:hinlogkhenyshi@gmail.com"><Mail size={16} /> Email me</a>
+        <div className="contact-actions">
+          <a className="button button-primary" href="mailto:hinlogkhenyshi@gmail.com"><Mail size={16} /> Email me</a>
+          <a
+            className="button button-secondary"
+            href="https://www.linkedin.com/in/khenyshi-hinlog-27269539b/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <Linkedin size={16} aria-hidden="true" /> LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        </div>
       </section>
     </>
   );

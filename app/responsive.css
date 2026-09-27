@@ -4,10 +4,7 @@ img, svg { max-width: 100%; }
 .hero-copy, .project-body, .about-copy, .timeline-item > div, .skills-list > div > * { min-width: 0; }
 .project h3, .certificate-list strong, .skills-list p, .timeline-item p { overflow-wrap: anywhere; }
 .site-header a, .project-links a, .certificate-list a, .footer a { touch-action: manipulation; }
-.github-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 1.5rem; font-size: .75rem; font-weight: 700; }
-.github-calendar { min-width: 0; overflow-x: auto; padding: 1.5rem 0 .5rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); color: var(--muted); scrollbar-width: thin; scrollbar-color: var(--line) transparent; }
-.github-calendar > article { min-width: 720px; }
-.github-calendar-loading { width: 720px; height: 128px; border: 1px solid var(--line); }
+.github-link { display: inline-flex; align-items: center; gap: .35rem; margin-top: 0; font-size: .75rem; font-weight: 700; }
 
 @media (min-width: 761px) and (max-width: 1080px) {
   .shell { width: min(100% - 64px, 1180px); }
