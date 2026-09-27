@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ArrowUpRight, Building2 } from "lucide-react";
 
 import type { Certificate } from "@/data/portfolio";
@@ -12,7 +13,11 @@ export function CertificationCard({ certificate, compact = false }: Certificatio
     <article className={`certification-card${compact ? " is-compact" : ""}`}>
       {compact && (
         <span className="certification-logo-placeholder" aria-hidden="true">
-          <Building2 size={18} />
+          {certificate.icon ? (
+            <Image src={certificate.icon} alt="" width={18} height={18} />
+          ) : (
+            <Building2 size={18} />
+          )}
         </span>
       )}
       <div className="certification-card-heading">

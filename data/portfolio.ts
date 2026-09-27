@@ -17,6 +17,7 @@ export type Certificate = {
   title: string;
   issuer: string;
   date: string;
+  icon?: string;
   credentialId?: string;
   credentialUrl?: string;
 };
@@ -108,30 +109,35 @@ export const certificates: Certificate[] = [
     title: "Learn React",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert24zAwPPowNTBxVhVdUuEzeUS1mCGoygZykct8",
   },
   {
     title: "Advance React",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2JbLs3qgAygbMwfjN2BCt3xPK9bHLMQDw2LCeq",
   },
   {
     title: "Learn Node.js",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2ffentAFMakffWbgTExAkCbShGmN1sc2x24icYUZttaz3r"
   },
   {
     title: "Associate AI Engineer for Developeres",
     issuer: "DataCamp",
     date: "2026",
+    icon: "/icons/datacamp.svg",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/track/638d5e6c3357fe105aaf4f9652295a52b81f4c77?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
   },
   {
     title: "Model Context Protocol: Advanced Topics",
     issuer: "DataCamp",
     date: "2026",
+    icon: "/icons/datacamp.svg",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/course/c5ad3e3515454f44ac7b6564b72a2ebe9e3c47af"    
   },
   {
@@ -144,12 +150,14 @@ export const certificates: Certificate[] = [
     title: "Legacy Responsive Web Design",
     issuer: "freeCodeCamp",
     date: "2025",
+    icon: "/icons/freecodecamp.svg",
     credentialUrl: "https://freecodecamp.org/certification/khenshi/responsive-web-design",
   },
   {
     title: "JavaScript",
     issuer: "freeCodeCamp",
     date: "2026",
+    icon: "/icons/freecodecamp.svg",
     credentialUrl: "https://www.freecodecamp.org/certification/khenshi/javascript-v9"
   }
 ];
