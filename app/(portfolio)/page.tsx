@@ -17,8 +17,7 @@ export default function OverviewPage() {
           <p className="eyebrow"><span className="status-dot" />Based in Davao City, Philippines</p>
           <h1>Khenyshi Hinlog</h1>
           <p className="hero-intro">
-            I&apos;m a computer science student and full-stack developer. I care about clear interfaces,
-            dependable systems, and technology that solves a real problem.
+            Computer science student and full-stack developer focused on clear interfaces and useful software.
           </p>
           <div className="hero-actions">
             <Link className="button button-primary" href="/projects">See my work <ArrowDownRight size={16} /></Link>
@@ -38,10 +37,10 @@ export default function OverviewPage() {
         </figure>
       </section>
 
-      <section className="section shell" aria-labelledby="projects-title">
+      <section className="section shell overview-projects-section" aria-labelledby="projects-title">
         <div className="section-heading">
           <p className="section-number">01</p>
-          <div><p className="eyebrow">Selected work</p><h2 id="projects-title">Projects with a purpose.</h2></div>
+          <div><p className="eyebrow">Selected work</p><h2 id="projects-title">Featured projects</h2></div>
         </div>
         <ProjectCarousel label="Project showcase">
           {projects.map((project) => (
@@ -53,8 +52,8 @@ export default function OverviewPage() {
 
       <section className="section shell split-section" aria-labelledby="experience-title">
         <div>
-          <p className="eyebrow">Experience & education</p>
-          <h2 id="experience-title" className="subheading">Where I&apos;ve been learning.</h2>
+          <p className="eyebrow">Background</p>
+          <h2 id="experience-title" className="subheading">Experience &amp; education</h2>
           <Link className="section-more-link" href="/experience">Full experience <ArrowUpRight size={15} /></Link>
         </div>
         <div className="experience-list">
@@ -65,7 +64,7 @@ export default function OverviewPage() {
       <section className="section shell capabilities-overview" aria-labelledby="skills-title">
         <div className="overview-section-heading">
           <p className="eyebrow">Capabilities</p>
-          <h2 id="skills-title" className="subheading">Tools I work with.</h2>
+          <h2 id="skills-title" className="subheading">Tools &amp; technologies</h2>
         </div>
         <div className="capability-grid">
           {skills.map((group) => (
@@ -83,7 +82,7 @@ export default function OverviewPage() {
         <div className="overview-section-heading overview-section-heading-actions">
           <div>
             <p className="eyebrow">Continued learning</p>
-            <h2 id="certifications-title" className="subheading">Recent credentials.</h2>
+            <h2 id="certifications-title" className="subheading">Certifications</h2>
           </div>
           <Link className="section-more-link" href="/certifications">All certifications <ArrowUpRight size={15} /></Link>
         </div>
@@ -97,8 +96,8 @@ export default function OverviewPage() {
       <GithubSection />
 
       <section className="contact shell" aria-labelledby="contact-title">
-        <p className="eyebrow">Have a project in mind?</p>
-        <h2 id="contact-title">Let&apos;s make something<br />clear and useful.</h2>
+        <p className="eyebrow">Contact</p>
+        <h2 id="contact-title">Let&apos;s build something<br />useful.</h2>
         <div className="contact-actions">
           <a className="button button-primary" href="mailto:hinlogkhenyshi@gmail.com"><Mail size={16} /> Email me</a>
           <a

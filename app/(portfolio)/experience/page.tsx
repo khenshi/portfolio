@@ -8,7 +8,7 @@ export default function ExperiencePage() {
       <PageHeading
         eyebrow="Work & education"
         title="Experience"
-        description="Relevant roles and the education shaping how I approach software development."
+        description="Work and education history."
       />
       <section className="page-section shell experience-page-list" aria-label="Work and education history">
         {experience.map((item) => <ExperienceEntry key={item.role} item={item} />)}

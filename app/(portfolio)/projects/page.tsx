@@ -8,7 +8,7 @@ export default function ProjectsPage() {
       <PageHeading
         eyebrow="Selected work"
         title="Projects"
-        description="A collection of products, experiments, and team projects built to solve practical problems."
+        description="Web, AI, and desktop projects."
       />
       <section className="page-section shell" aria-label="All projects">
         <div className="project-grid">

@@ -13,7 +13,7 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
   const technologyLimit = variant === "overview" ? 4 : 5;
   const preview = project.thumbnail ?? project.caseStudy?.gallery?.[0];
   const imageSizes = variant === "overview"
-    ? "(max-width: 760px) 82vw, (max-width: 1100px) 42vw, 30rem"
+    ? "(max-width: 760px) 82vw, (max-width: 1100px) 36vw, 24rem"
     : "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw";
 
   return (

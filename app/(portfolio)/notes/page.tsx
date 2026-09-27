@@ -12,14 +12,14 @@ export default function NotesPage() {
       <PageHeading
         eyebrow="Writing & references"
         title="Online Notes"
-        description="Short notes, ideas, and references from the things I build and learn."
+        description="Notes from projects and learning."
       />
       <section className="page-section shell" aria-label="Published notes">
         {notes.length === 0 ? (
           <div className="notes-empty-state">
             <FileText size={24} strokeWidth={1.5} aria-hidden="true" />
-            <h2>No notes published yet</h2>
-            <p>Notes will appear here as they are added to the portfolio.</p>
+            <h2>No notes yet</h2>
+            <p>Add Markdown files to <code>content/notes/</code> to publish notes.</p>
           </div>
         ) : (
           <div className="notes-list">

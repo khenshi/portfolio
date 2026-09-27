@@ -68,7 +68,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
             {sourceLinkIsReal && <ProjectLink href={project.links.github}>GitHub</ProjectLink>}
             {project.links.album && <ProjectLink href={project.links.album}>Project Album</ProjectLink>}
             {!project.links.demo && !sourceLinkIsReal && !project.links.album && (
-              <Placeholder>Add live demo or GitHub links in <code>{caseStudyPath}</code>.</Placeholder>
+              <Placeholder>Add project links in <code>{caseStudyPath}</code>.</Placeholder>
             )}
           </div>
         </div>
@@ -119,7 +119,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
           {problem ? (
             <p className="project-detail-copy">{problem}</p>
           ) : (
-            <Placeholder>Add the project context and problem it addresses in <code>{caseStudyPath}</code>.</Placeholder>
+            <Placeholder>Add project context in <code>{caseStudyPath}</code>.</Placeholder>
           )}
         </DetailSection>
 
@@ -127,7 +127,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
           {solution ? (
             <p className="project-detail-copy">{solution}</p>
           ) : (
-            <Placeholder>Describe your approach and key decisions in <code>{caseStudyPath}</code>.</Placeholder>
+            <Placeholder>Add your approach in <code>{caseStudyPath}</code>.</Placeholder>
           )}
         </DetailSection>
 
@@ -147,7 +147,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
               {project.caseStudy.technicalDecisions.map((decision) => <li key={decision}>{decision}</li>)}
             </ul>
           ) : (
-            <Placeholder>Explain important architecture and design decisions in <code>{caseStudyPath}</code>.</Placeholder>
+            <Placeholder>Add technical decisions in <code>{caseStudyPath}</code>.</Placeholder>
           )}
         </DetailSection>
 
@@ -168,7 +168,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
               ))}
             </div>
           ) : (
-            <Placeholder>Describe a meaningful engineering challenge and how you addressed it in <code>{caseStudyPath}</code>.</Placeholder>
+            <Placeholder>Add challenge and solution pairs in <code>{caseStudyPath}</code>.</Placeholder>
           )}
         </DetailSection>
 
@@ -194,7 +194,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
           </div>
           {gallery.length === 0 && (
             <p className="project-gallery-guidance">
-              Add images under <code>public/projects/{project.slug}/</code> and list them in <code>{caseStudyPath}</code>.
+              Add screenshots under <code>public/projects/{project.slug}/</code> and list them in <code>{caseStudyPath}</code>.
             </p>
           )}
         </DetailSection>
@@ -218,7 +218,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
                   {learnings.map((learning) => <li key={learning}>{learning}</li>)}
                 </ul>
               ) : (
-                <Placeholder>Add lessons learned in <code>{caseStudyPath}</code>.</Placeholder>
+                <Placeholder>Add learnings in <code>{caseStudyPath}</code>.</Placeholder>
               )}
             </div>
           </div>
@@ -230,7 +230,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
               {project.caseStudy.futureImprovements.map((improvement) => <li key={improvement}>{improvement}</li>)}
             </ul>
           ) : (
-            <Placeholder>Add planned improvements here, or leave this section empty when there are none.</Placeholder>
+            <Placeholder>Add future improvements in <code>{caseStudyPath}</code>.</Placeholder>
           )}
         </DetailSection>
 

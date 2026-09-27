@@ -8,7 +8,7 @@ export default function CertificationsPage() {
       <PageHeading
         eyebrow="Continued learning"
         title="Certifications"
-        description="Courses and credentials in software development, AI, and web technologies."
+        description="Software, AI, and web credentials."
       />
       <section className="page-section shell certification-grid" aria-label="All certifications">
         {certificates.map((certificate) => (
