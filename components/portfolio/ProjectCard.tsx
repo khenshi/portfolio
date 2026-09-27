@@ -2,52 +2,59 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 import type { Project } from "@/data/portfolio";
+import { ProjectMedia } from "@/components/portfolio/ProjectMedia";
 
 type ProjectCardProps = {
   project: Project;
-  index: number;
-  showFeatures?: boolean;
+  variant: "overview" | "directory";
 };
 
-export function ProjectCard({ project, index, showFeatures = true }: ProjectCardProps) {
-  const githubIsReal = project.links.github.includes("github.com/khenshi/");
+export function ProjectCard({ project, variant }: ProjectCardProps) {
+  const technologyLimit = variant === "overview" ? 4 : 5;
+  const preview = project.thumbnail ?? project.caseStudy?.gallery?.[0];
 
   return (
-    <article className="project-card">
-      <div className="project-card-topline">
-        <span className="project-card-index">{String(index + 1).padStart(2, "0")}</span>
-        {project.note && <span className="project-note">{project.note}</span>}
-      </div>
+    <Link
+      className={`project-card project-card-${variant}`}
+      href={`/projects/${project.slug}`}
+      aria-label={`View ${project.title} project`}
+    >
+      <ProjectMedia
+        image={preview}
+        title={project.title}
+        variant="card"
+        sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
+      />
+
       <div className="project-card-body">
         <h2>{project.title}</h2>
-        <p className="project-card-description">{project.description}</p>
-        {project.role && <p className="project-card-role">{project.role}</p>}
-        {showFeatures && project.features.length > 0 && (
-          <ul className="project-feature-list">
-            {project.features.map((feature) => <li key={feature}>{feature}</li>)}
-          </ul>
-        )}
-        <ul className="tech-list" aria-label={`${project.title} technologies`}>
-          {project.tech.map((technology) => <li key={technology}>{technology}</li>)}
-        </ul>
+        <p className="project-card-description">{project.cardSummary}</p>
       </div>
-      <div className="project-card-links" aria-label={`${project.title} links`}>
-        {project.links.demo && (
-          <Link href={project.links.demo} target="_blank" rel="noreferrer">
-            Live site <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
-        )}
-        {githubIsReal && (
-          <Link href={project.links.github} target="_blank" rel="noreferrer">
-            Source <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
-        )}
-        {!project.links.demo && project.links.album && (
-          <Link href={project.links.album} target="_blank" rel="noreferrer">
-            Project album <ArrowUpRight size={14} aria-hidden="true" />
-          </Link>
-        )}
-      </div>
-    </article>
+
+      {variant === "directory" && (
+        <dl className="project-card-meta">
+          <div>
+            <dt>My role</dt>
+            <dd>{project.role ?? "Not provided"}</dd>
+          </div>
+          <div>
+            <dt>Project status</dt>
+            <dd className={project.status ? undefined : "is-unspecified"}>
+              {project.status ?? "Not provided"}
+            </dd>
+          </div>
+        </dl>
+      )}
+
+      <ul className="tech-list" aria-label={`${project.title} primary technologies`}>
+        {project.tech.slice(0, technologyLimit).map((technology) => (
+          <li key={technology}>{technology}</li>
+        ))}
+      </ul>
+
+      <span className="project-card-action">
+        View Project <ArrowUpRight size={15} aria-hidden="true" />
+      </span>
+    </Link>
   );
 }

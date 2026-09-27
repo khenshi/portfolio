@@ -12,8 +12,8 @@ export default function ProjectsPage() {
       />
       <section className="page-section shell" aria-label="All projects">
         <div className="project-grid">
-          {projects.map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} />
+          {projects.map((project) => (
+            <ProjectCard key={project.slug} project={project} variant="directory" />
           ))}
         </div>
       </section>

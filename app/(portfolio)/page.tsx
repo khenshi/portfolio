@@ -43,11 +43,11 @@ export default function OverviewPage() {
           <div><p className="eyebrow">Selected work</p><h2 id="projects-title">Projects with a purpose.</h2></div>
         </div>
         <div className="project-grid project-grid-compact">
-          {projects.slice(0, 4).map((project, index) => (
-            <ProjectCard key={project.title} project={project} index={index} showFeatures={false} />
+          {projects.filter((project) => project.featured).map((project) => (
+            <ProjectCard key={project.slug} project={project} variant="overview" />
           ))}
         </div>
-        <Link className="section-more-link" href="/projects">All projects <ArrowUpRight size={15} /></Link>
+        <Link className="section-more-link" href="/projects">View All Projects <ArrowUpRight size={15} /></Link>
       </section>
 
       <section className="section shell about-grid" aria-labelledby="about-title">
