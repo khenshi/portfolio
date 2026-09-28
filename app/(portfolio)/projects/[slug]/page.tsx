@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { ProjectDetail } from "@/components/portfolio/ProjectDetail";
 import { projects } from "@/data/portfolio";
+import { projects as projectDetails } from "@/data/projects";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -28,9 +29,14 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
-  const project = projects.find((item) => item.slug === slug);
+  const catalogProject = projects.find((item) => item.slug === slug);
 
-  if (!project) notFound();
+  if (!catalogProject) notFound();
+
+  const projectDetail = projectDetails.find((item) => item.slug === slug);
+  const project = projectDetail
+    ? { ...projectDetail, ...catalogProject, caseStudy: projectDetail.caseStudy }
+    : catalogProject;
 
   const projectIndex = projects.findIndex((item) => item.slug === slug);
 

@@ -75,7 +75,7 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
             {sourceLinkIsReal && <ProjectLink href={project.links.github}>GitHub</ProjectLink>}
             {project.links.album && <ProjectLink href={project.links.album}>Project Album</ProjectLink>}
             {!project.links.demo && !sourceLinkIsReal && !project.links.album && (
-              <Placeholder>Add project links in <code>{caseStudyPath}</code>.</Placeholder>
+              ""
             )}
           </div>
         </div>

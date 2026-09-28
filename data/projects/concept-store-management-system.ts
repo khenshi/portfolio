@@ -79,5 +79,5 @@ export const conceptStoreManagementSystem: Project =
     thumbnail: {
       src: "/images/kapwesto.webp",
       alt: "Screenshot of the Kapwesto Concept Store Management System application interface",
-    }
+    },
 }

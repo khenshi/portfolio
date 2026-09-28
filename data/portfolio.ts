@@ -135,6 +135,7 @@ export const projects: Project[] = [
       src: "/images/munimuni.webp",
       alt: "Screenshot of the MuniMuni Resort Management System application interface",
     },
+    status: "In development",
   },
   {
     slug: "addu-qpi-simulator",
