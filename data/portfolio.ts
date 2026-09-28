@@ -1,26 +1,11 @@
-export type NavItem = {
-  id: string;
-  label: string;
-};
+import type { Project } from "./projects/types";
 
 export type SkillGroup = {
   title: string;
   items: string[];
 };
 
-export type Project = {
-  title: string;
-  description: string;
-  tech: string[];
-  features: string[];
-  links: {
-    github: string;
-    demo: string;
-    album: string;
-  };
-  note?: string;
-  role?: string;
-};
+export type { Project, ProjectCaseStudy, ProjectChallenge, ProjectGalleryImage } from "./projects/types";
 
 export type ExperienceItem = {
   role: string;
@@ -33,17 +18,10 @@ export type Certificate = {
   title: string;
   issuer: string;
   date: string;
+  icon?: string;
   credentialId?: string;
   credentialUrl?: string;
 };
-
-export const navItems: NavItem[] = [
-  { id: "home", label: "Home" },
-  { id: "skills", label: "Tech" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "certificates", label: "Certificates" },
-];
 
 export const skills: SkillGroup[] = [
   {
@@ -97,54 +75,41 @@ export const skills: SkillGroup[] = [
 
 export const projects: Project[] = [
   {
-    title: "AdDU QPI Simulator",
-    description:
-      "A web application that helps Ateneo de Davao University students calculate, track, and simulate their Quality Point Index (QPI). It features curriculum presets, academic progress tracking, and grade planning tools to help students achieve their target QPI.",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Prisma",
-      "PostgreSQL",
-      "NextAuth",
-      "Zustand"
-    ],
-    features: [
-      "Calculate semester and cumulative QPI using official AdDU grading rules",
-      "Track academic progress with curriculum presets and custom study plans",
-      "What-If QPI simulator for forecasting grades and target academic outcomes",
-    ],
-    links: {
-      github: "https://github.com/yourusername/addu-qpi-calculator",
-      demo: "https://addu-qpi.vercel.app",
-      album: "",
-    },
+      slug: "concept-store-management-system",
+      title: "Concept Store Management System",
+      cardSummary: "Manage merchants, spaces, stock, and sales across store branches.",
+  description:
+  "A multi-tenant SaaS platform designed for concept stores to manage merchants, physical spaces, inventory, sales, settlements, and branch operations through a centralized management system.",
+  
+  tech: [
+  "Next.js",
+  "TypeScript",
+  "NestJS",
+  "PostgreSQL",
+  "Prisma",
+  "Tailwind CSS"
+  ],
+  
+  features: [
+  "Multi-tenant organization, branch, member, and role management with isolated business data",
+  "Merchant, space, agreement, product, and branch inventory management with stock movement tracking",
+  "POS sales, payment tracking, sales reports, merchant settlements, payouts, and rent management"
+  ],
+  
+  links: {
+  github: "",
+  demo: "",
+  album: "",
+  },
+  thumbnail: {
+    src: "/images/kapwesto.webp",
+    alt: "Kapwesto workspace landing page with a preview of its concept store dashboard",
+  },
   },
   {
-    title: "Dates",
-    description:
-      "A location-based discovery platform that helps users find and explore recommended date destinations through interactive maps, curated place information, and location-based browsing.",
-    tech: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Maps API",
-      "PostgreSQL",
-    ],
-    features: [
-      "Interactive map interface with location markers for date destinations",
-      "Place preview cards with details, categories, and recommendations",
-      "Location-based discovery experience for exploring nearby spots",
-    ],
-    links: {
-      github: "https://github.com/yourusername/date-spots",
-      demo: "https://davaodates.vercel.app",
-      album: "",
-    },
-    note: "ongoing",
-  },
-  {
+    slug: "munimuni-resort-management-system",
     title: "MuniMuni Resort Management System",
+    cardSummary: "Manage resort reservations, guests, and resources from one dashboard.",
     description:
       "A full-stack resort management platform designed to streamline reservations, guest management, and administrative operations. The system provides tools for managing accommodations, bookings, front desk workflows, and resort resources through a centralized dashboard.",
     tech: [
@@ -166,9 +131,46 @@ export const projects: Project[] = [
       album: "",
     },
     note: "ongoing",
+    thumbnail: {
+      src: "/images/munimuni.webp",
+      alt: "Screenshot of the MuniMuni Resort Management System application interface",
+    },
+    status: "In development",
   },
   {
+    slug: "addu-qpi-simulator",
+    title: "AdDU QPI Simulator",
+    cardSummary: "Calculate QPI, track progress, and plan grades with curriculum presets.",
+    description:
+      "A web application that helps Ateneo de Davao University students calculate, track, and simulate their Quality Point Index (QPI). It features curriculum presets, academic progress tracking, and grade planning tools to help students achieve their target QPI.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Zustand"
+    ],
+    features: [
+      "Calculate semester and cumulative QPI using official AdDU grading rules",
+      "Track academic progress with curriculum presets and custom study plans",
+      "What-If QPI simulator for forecasting grades and target academic outcomes",
+    ],
+    links: {
+      github: "https://github.com/yourusername/addu-qpi-calculator",
+      demo: "https://addu-qpi.vercel.app",
+      album: "",
+    },
+    thumbnail: {
+      src: "/images/addu-qpi.webp",
+      alt: "Screenshot of the AdDU QPI Simulator application interface",
+    },
+  },
+  {
+    slug: "truthlayer",
     title: "TruthLayer",
+    cardSummary: "Estimate the credibility of online content with AI and retrieved sources.",
     description:
       "An AI-powered misinformation detection platform that analyzes online content and estimates its credibility using natural language processing and machine learning. Built during a hackathon to help users identify potentially misleading information.",
     tech: [
@@ -189,12 +191,47 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/khenshi/MJKTeam1-TruthLayer",
       demo: "",
-      album: "https://drive.google.com/file/d/184efcM5xcEJGrqbDCaqBONFXMAxTZQ4x/view?fbclid=IwY2xjawTLNMZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeE_E7pYmCIubWL8P03DvGXLFpL_UdlgTH_axH49G3Ni1PPAP3DGVp5fdbuaM_aem_rACZhjlmrulMdkSnbqMhCQ&pli=1",
+      album: "",
     },
     note: "hackathon top 6",
+    thumbnail: {
+      src: "/images/truthlayer.webp",
+      alt: "Screenshot of the TruthLayer application interface",
+    },
   },
   {
+    slug: "dates",
+    title: "Dates",
+    cardSummary: "Discover date destinations through interactive maps and curated recommendations.",
+    description:
+      "A location-based discovery platform that helps users find and explore recommended date destinations through interactive maps, curated place information, and location-based browsing.",
+    tech: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Maps API",
+      "PostgreSQL",
+    ],
+    features: [
+      "Interactive map interface with location markers for date destinations",
+      "Place preview cards with details, categories, and recommendations",
+      "Location-based discovery experience for exploring nearby spots",
+    ],
+    links: {
+      github: "https://github.com/yourusername/date-spots",
+      demo: "https://davaodates.vercel.app",
+      album: "",
+    },
+    note: "ongoing",
+    thumbnail: {
+      src: "/images/dates.webp",
+      alt: "Screenshot of the Dates application interface",
+    },
+  },
+  {
+    slug: "point-of-sale-system",
     title: "Point of Sale (POS) System",
+    cardSummary: "Process sales and manage inventory in a Java desktop application.",
     description:
       "A desktop-based point-of-sale system developed in Java for a school project, designed to manage sales transactions, inventory, and user accounts through an intuitive interface for cashiers and administrators.",
     tech: [
@@ -211,30 +248,13 @@ export const projects: Project[] = [
     links: {
       github: "https://github.com/khenshi/POS_ENHANCED",
       demo: "",
-      album: "https://drive.google.com/drive/folders/1Sg7kPdaU29_zzIm1pgSXAYxPA6RYsxlv?usp=share_link",
+      album: "",
+    },
+    thumbnail: {
+      src: "/images/POS.webp",
+      alt: "Screenshot of the Point of Sale System application interface",
     },
   },
-  {
-  title: "Enrollment Management System",
-  description:
-    "A desktop-based enrollment management system developed in Java that streamlines student record management and enrollment workflows while demonstrating core database operations through a MySQL backend.",
-  tech: [
-    "Java",
-    "Java Swing",
-    "MySQL",
-    "JDBC"
-  ],
-  features: [
-    "Student enrollment and record management with full CRUD functionality",
-    "Course and section management with MySQL database integration",
-    "Search, filter, and update student information through a user-friendly interface",
-  ],
-  links: {
-    github: "https://github.com/khenshi/HinlogESystem7/settings",
-    demo: "",
-    album: "",
-  },
-},
 ];
 
 export const experience: ExperienceItem[] = [
@@ -274,30 +294,35 @@ export const certificates: Certificate[] = [
     title: "Learn React",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert24zAwPPowNTBxVhVdUuEzeUS1mCGoygZykct8",
   },
   {
     title: "Advance React",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2JbLs3qgAygbMwfjN2BCt3xPK9bHLMQDw2LCeq",
   },
   {
     title: "Learn Node.js",
     issuer: "Scrimba",
     date: "2026",
+    icon: "/icons/scrimba.svg",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2ffentAFMakffWbgTExAkCbShGmN1sc2x24icYUZttaz3r"
   },
   {
     title: "Associate AI Engineer for Developeres",
     issuer: "DataCamp",
     date: "2026",
+    icon: "/icons/datacamp.svg",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/track/638d5e6c3357fe105aaf4f9652295a52b81f4c77?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
   },
   {
     title: "Model Context Protocol: Advanced Topics",
     issuer: "DataCamp",
     date: "2026",
+    icon: "/icons/datacamp.svg",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/course/c5ad3e3515454f44ac7b6564b72a2ebe9e3c47af"    
   },
   {
@@ -310,12 +335,14 @@ export const certificates: Certificate[] = [
     title: "Legacy Responsive Web Design",
     issuer: "freeCodeCamp",
     date: "2025",
+    icon: "/icons/freecodecamp.svg",
     credentialUrl: "https://freecodecamp.org/certification/khenshi/responsive-web-design",
   },
   {
     title: "JavaScript",
     issuer: "freeCodeCamp",
     date: "2026",
+    icon: "/icons/freecodecamp.svg",
     credentialUrl: "https://www.freecodecamp.org/certification/khenshi/javascript-v9"
   }
 ];
