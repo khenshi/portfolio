@@ -10,8 +10,8 @@ export default function ProjectsPage() {
         title="Projects"
         description="Web, AI, and desktop projects."
       />
-      <section className="page-section shell" aria-label="All projects">
-        <div className="project-grid">
+      <section className="mx-auto w-full max-w-[1060px] pb-16 pt-11 max-[760px]:pb-12 max-[760px]:pt-8" aria-label="All projects">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,290px),1fr))] gap-4">
           {projects.map((project) => (
             <ProjectCard key={project.slug} project={project} variant="directory" />
           ))}

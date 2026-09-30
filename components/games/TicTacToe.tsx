@@ -2,7 +2,6 @@
 
 import { useEffect, useReducer } from "react";
 import { chooseComputerMove, gameReducer, getResult, initialState, type Difficulty, type Mode } from "./tic-tac-toe";
-import styles from "./TicTacToe.module.css";
 
 export function TicTacToe() {
   const [state, dispatch] = useReducer(gameReducer, initialState);
@@ -25,25 +24,39 @@ export function TicTacToe() {
     : result.draw ? "It’s a draw." : thinking ? "Computer is thinking…" : mode === "computer" ? "Your turn — X" : `Player ${turn}’s turn`;
 
   return (
-    <section className={styles.game} aria-label="Tic-tac-toe game">
-      <div className={styles.heading}>
-        <h2>Tic-Tac-Toe</h2>
-        <button type="button" className={styles.reset} onClick={() => dispatch({ type: "reset" })}>New game</button>
+    <section className="mx-auto w-full max-w-[180px]" aria-label="Tic-tac-toe game">
+      <div className="flex items-center justify-between gap-2">
+        <h2 className="m-0 text-[.68rem] font-semibold text-muted">Tic-Tac-Toe</h2>
+        <button
+          type="button"
+          className="min-h-8 border-0 bg-transparent px-0 py-[.3rem] pl-[.4rem] text-[.65rem] text-muted hover:text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+          onClick={() => dispatch({ type: "reset" })}
+        >
+          New game
+        </button>
       </div>
-      <details className={styles.settings}>
-        <summary>Settings</summary>
-        <div className={styles.controls}>
-          <label className={styles.field}>
+      <details className="text-[.65rem] text-muted">
+        <summary className="min-h-8 w-fit cursor-pointer py-[.4rem] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2">Settings</summary>
+        <div className="grid gap-[.65rem] py-[.4rem]">
+          <label className="grid gap-[.3rem]">
             Game mode
-            <select value={mode} onChange={(event) => dispatch({ type: "mode", mode: event.target.value as Mode })}>
+            <select
+              className="min-h-9 w-full rounded-none border border-line bg-paper px-[.4rem] py-[.4rem] text-[.7rem] text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              value={mode}
+              onChange={(event) => dispatch({ type: "mode", mode: event.target.value as Mode })}
+            >
               <option value="computer">Vs computer</option>
               <option value="local">Local two-player</option>
             </select>
           </label>
           {mode === "computer" && (
-            <label className={styles.field}>
+            <label className="grid gap-[.3rem]">
               Difficulty
-              <select value={difficulty} onChange={(event) => dispatch({ type: "difficulty", difficulty: event.target.value as Difficulty })}>
+              <select
+                className="min-h-9 w-full rounded-none border border-line bg-paper px-[.4rem] py-[.4rem] text-[.7rem] text-ink focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+                value={difficulty}
+                onChange={(event) => dispatch({ type: "difficulty", difficulty: event.target.value as Difficulty })}
+              >
                 <option value="easy">Easy</option>
                 <option value="medium">Medium</option>
                 <option value="hard">Hard</option>
@@ -52,13 +65,13 @@ export function TicTacToe() {
           )}
         </div>
       </details>
-      <p className={styles.status} role="status" aria-live="polite" aria-atomic="true">{status}</p>
-      <div className={styles.board} role="group" aria-label="Game board, three rows and three columns">
+      <p className="my-2 mb-3 text-[.7rem] leading-[1.5] text-muted" role="status" aria-live="polite" aria-atomic="true">{status}</p>
+      <div className="grid w-full grid-cols-3" role="group" aria-label="Game board, three rows and three columns">
         {board.map((mark, index) => (
           <button
             key={index}
             type="button"
-            className={`${styles.cell}${result.line.includes(index) ? ` ${styles.winner}` : ""}`}
+            className={`flex aspect-square min-w-0 items-center justify-center border-0 border-line bg-transparent p-0 text-[1.5rem] font-normal text-ink enabled:hover:bg-ink/5 disabled:cursor-default disabled:opacity-100 focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2 ${index % 3 === 2 ? "border-r-0" : "border-r"} ${index >= 6 ? "border-b-0" : "border-b"} ${result.line.includes(index) ? "bg-winner text-accent-dark" : ""}`}
             aria-label={`Row ${Math.floor(index / 3) + 1}, column ${index % 3 + 1}: ${mark ?? "empty"}${result.line.includes(index) ? ", winning square" : ""}`}
             disabled={mark !== null || finished || thinking}
             onClick={() => dispatch({ type: "move", index })}

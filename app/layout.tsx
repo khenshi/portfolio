@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import "./responsive.css";
-import "./portfolio.css";
 
 export const metadata: Metadata = {
   title: "Khenyshi Hinlog — Full-stack Developer",

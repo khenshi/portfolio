@@ -9,7 +9,7 @@ const GitHubCalendar = dynamic(
   () => import("react-github-calendar").then((module) => module.GitHubCalendar),
   {
     ssr: false,
-    loading: () => <div className="github-calendar-loading" aria-hidden="true" />,
+    loading: () => <div className="min-h-32 w-full border border-line" aria-hidden="true" />,
   },
 );
 
@@ -44,17 +44,17 @@ export function GithubSection() {
   }, []);
 
   return (
-    <section id="github" className="section shell github-section" aria-labelledby="github-title">
-      <div className="github-section-heading">
+    <section id="github" className="mx-auto w-full max-w-[1060px] border-t border-line py-20 max-[760px]:py-14" aria-labelledby="github-title">
+      <div className="mb-8 flex items-end justify-between gap-8 max-[760px]:mb-6 max-[760px]:gap-[.9rem]">
         <div>
-          <p className="eyebrow">Open source activity</p>
-          <h2 id="github-title" className="subheading">GitHub contributions.</h2>
+          <p className="mb-[.8rem] mt-0 text-[.72rem] font-bold uppercase tracking-[.13em] text-muted">Open source activity</p>
+          <h2 id="github-title" className="m-0 max-w-[360px] text-[clamp(2rem,3vw,3rem)] font-medium leading-[1.05] tracking-[-.045em]">GitHub contributions.</h2>
         </div>
-        <Link className="github-link" href="https://github.com/khenshi" target="_blank" rel="noreferrer">
-          View profile <ArrowUpRight size={14} />
+        <Link className="inline-flex min-h-10 flex-none items-center gap-[.35rem] text-[.75rem] font-bold max-[760px]:mb-0" href="https://github.com/khenshi" target="_blank" rel="noreferrer">
+          View profile <ArrowUpRight size={14} aria-hidden="true" />
         </Link>
       </div>
-      <div ref={calendarRef} className="github-calendar" aria-label="Khenyshi Hinlog's GitHub contribution calendar">
+      <div ref={calendarRef} className="w-full min-w-0 overflow-hidden py-6 pb-2 text-muted md:[&_.react-activity-calendar__scroll-container]:flex md:[&_.react-activity-calendar__scroll-container]:justify-center" aria-label="Khenyshi Hinlog's GitHub contribution calendar">
         <GitHubCalendar
           username="khenshi"
           colorScheme="light"

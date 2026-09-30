@@ -10,7 +10,7 @@ export default function CertificationsPage() {
         title="Certifications"
         description="Software, AI, and web credentials."
       />
-      <section className="page-section shell certification-grid" aria-label="All certifications">
+      <section className="mx-auto grid w-full max-w-[1060px] grid-cols-[repeat(auto-fit,minmax(min(100%,265px),1fr))] gap-4 pb-16 pt-11 max-[760px]:grid-cols-1 max-[760px]:pb-12 max-[760px]:pt-8" aria-label="All certifications">
         {certificates.map((certificate) => (
           <CertificationCard key={certificate.title} certificate={certificate} />
         ))}

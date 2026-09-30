@@ -10,7 +10,7 @@ export default function ExperiencePage() {
         title="Experience"
         description="Work and education history."
       />
-      <section className="page-section shell experience-page-list" aria-label="Work and education history">
+      <section className="mx-auto grid w-full max-w-[1060px] gap-0 pb-16 pt-11 max-[760px]:pb-12 max-[760px]:pt-8" aria-label="Work and education history">
         {experience.map((item) => <ExperienceEntry key={item.role} item={item} />)}
       </section>
     </>

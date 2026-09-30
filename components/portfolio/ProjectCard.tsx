@@ -18,7 +18,7 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
 
   return (
     <Link
-      className={`project-card project-card-${variant}`}
+      className={`group flex min-h-full min-w-0 flex-col border border-line bg-paper text-ink transition-[border-color,transform] duration-200 ease-in-out hover:-translate-y-0.5 hover:border-[color-mix(in_srgb,var(--accent)_45%,var(--line))] focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-3 ${variant === "overview" ? "p-[.9rem]" : "p-[1.15rem]"}`}
       href={`/projects/${project.slug}`}
       aria-label={`View ${project.title} project`}
     >
@@ -29,33 +29,33 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
         sizes={imageSizes}
       />
 
-      <div className="project-card-body">
-        <h2>{project.title}</h2>
-        <p className="project-card-description">{project.cardSummary}</p>
+      <div className="min-w-0">
+        <h2 className="m-[.15rem_0_0] text-[1.2rem] font-semibold leading-[1.2] tracking-[-.03em]">{project.title}</h2>
+        <p className={`mt-2 overflow-hidden text-[.84rem] leading-[1.55] text-muted [display:-webkit-box] [-webkit-box-orient:vertical] ${variant === "overview" ? "[-webkit-line-clamp:1]" : "[-webkit-line-clamp:2]"}`}>{project.cardSummary}</p>
       </div>
 
       {variant === "directory" && (
-        <dl className="project-card-meta">
-          <div>
-            <dt>My role</dt>
-            <dd>{project.role ?? "Not provided"}</dd>
+        <dl className="mt-3 grid grid-cols-[minmax(0,1fr)_minmax(0,auto)] gap-[.6rem_.8rem] border-t border-line pt-3">
+          <div className="min-w-0">
+            <dt className="text-[.62rem] font-bold uppercase tracking-[.1em] text-muted">My role</dt>
+            <dd className="mt-[.28rem] text-[.76rem] leading-[1.45]">{project.role ?? "Not provided"}</dd>
           </div>
-          <div>
-            <dt>Project status</dt>
-            <dd className={project.status ? undefined : "is-unspecified"}>
+          <div className="min-w-0">
+            <dt className="text-[.62rem] font-bold uppercase tracking-[.1em] text-muted">Project status</dt>
+            <dd className={`mt-[.28rem] text-[.76rem] leading-[1.45] ${project.status ? "" : "italic text-muted"}`}>
               {project.status ?? "Not provided"}
             </dd>
           </div>
         </dl>
       )}
 
-      <ul className="tech-list" aria-label={`${project.title} primary technologies`}>
+      <ul className={`mt-[.6rem] flex flex-wrap gap-[.35rem] p-0 ${variant === "directory" ? "mt-3" : ""}`} aria-label={`${project.title} primary technologies`}>
         {project.tech.slice(0, technologyLimit).map((technology) => (
-          <li key={technology}>{technology}</li>
+          <li className="border border-line px-[.48rem] py-[.32rem] text-[.63rem] leading-[1.2] text-muted" key={technology}>{technology}</li>
         ))}
       </ul>
 
-      <span className="project-card-action">
+      <span className="mt-auto flex items-center justify-between gap-[.6rem] pt-[.9rem] text-[.76rem] font-bold transition-colors group-hover:text-accent group-focus-visible:text-accent">
         View Project <ArrowUpRight size={15} aria-hidden="true" />
       </span>
     </Link>
