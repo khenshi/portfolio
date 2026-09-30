@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight, ArrowRight } from "lucide-react";
 
-import type { Project } from "@/data/portfolio";
+import type { Project } from "@/data/projects/types";
 import { ProjectMedia } from "@/components/portfolio/ProjectMedia";
 
 type ProjectDetailProps = {
@@ -29,10 +29,6 @@ function DetailSection({ number, title, id, children }: DetailSectionProps) {
   );
 }
 
-function Placeholder({ children }: { children: React.ReactNode }) {
-  return <p className="project-detail-placeholder">{children}</p>;
-}
-
 function ProjectLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <a href={href} target="_blank" rel="noreferrer">
@@ -45,7 +41,6 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
   const gallery = project.caseStudy?.gallery ?? [];
   const heroImage = project.thumbnail ?? gallery[0];
   const sourceLinkIsReal = project.links.github.includes("github.com/khenshi/");
-  const caseStudyPath = `data/projects/${project.slug}.ts`;
   const caseStudy = project.caseStudy;
   const overview = caseStudy?.overview ?? [
     caseStudy?.problem ?? caseStudy?.background,

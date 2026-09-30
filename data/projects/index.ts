@@ -8,10 +8,17 @@ import { pointOfSaleSystem } from "./point-of-sale-system";
 import { conceptStoreManagementSystem } from "./concept-store-management-system";
 
 export const projects: Project[] = [
-  adduQpiSimulator,
-  dates,
-  munimuniResortManagementSystem,
-  truthLayer,
-  pointOfSaleSystem,
   conceptStoreManagementSystem,
+  munimuniResortManagementSystem,
+  adduQpiSimulator,
+  truthLayer,
+  dates,
+  pointOfSaleSystem,
 ];
+
+export type {
+  Project,
+  ProjectCaseStudy,
+  ProjectChallenge,
+  ProjectGalleryImage,
+} from "./types";

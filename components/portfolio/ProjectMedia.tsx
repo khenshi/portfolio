@@ -3,7 +3,7 @@ import path from "node:path";
 import Image from "next/image";
 import { Image as ImageIcon } from "lucide-react";
 
-import type { ProjectGalleryImage } from "@/data/portfolio";
+import type { ProjectGalleryImage } from "@/data/projects/types";
 
 type ProjectMediaProps = {
   image?: ProjectGalleryImage;

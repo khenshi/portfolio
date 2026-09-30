@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
-import type { Project } from "@/data/portfolio";
+import type { Project } from "@/data/projects/types";
 import { ProjectMedia } from "@/components/portfolio/ProjectMedia";
 
 type ProjectCardProps = {

@@ -14,6 +14,7 @@ import {
   X,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { TicTacToe } from "@/components/games/TicTacToe";
 
 const navigation = [
   { label: "Overview", href: "/", icon: House },
@@ -41,7 +42,7 @@ export function PortfolioSidebar() {
     if (!isMobileOpen) return;
 
     const firstFocusable = sidebarRef.current?.querySelector<HTMLElement>(
-      'a[href], button:not([disabled])',
+      'a[href], button:not([disabled]), select, summary',
     );
     firstFocusable?.focus();
 
@@ -55,7 +56,7 @@ export function PortfolioSidebar() {
       if (event.key !== "Tab" || !sidebarRef.current) return;
       const focusable = Array.from(
         sidebarRef.current.querySelectorAll<HTMLElement>(
-          'a[href], button:not([disabled])',
+          'a[href], button:not([disabled]), select, summary',
         ),
       );
       if (focusable.length === 0) return;
@@ -151,6 +152,10 @@ export function PortfolioSidebar() {
             );
           })}
         </nav>
+
+        <div className="sidebar-game">
+          <TicTacToe />
+        </div>
 
         <div className="sidebar-bottom">
           <a className="sidebar-contact" href="mailto:hinlogkhenyshi@gmail.com">

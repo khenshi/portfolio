@@ -1,6 +1,6 @@
 import { PageHeading } from "@/components/portfolio/PageHeading";
 import { ProjectCard } from "@/components/portfolio/ProjectCard";
-import { projects } from "@/data/portfolio";
+import { projects } from "@/data/projects";
 
 export default function ProjectsPage() {
   return (

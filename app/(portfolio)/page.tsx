@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowDownRight, ArrowUpRight, Linkedin, Mail } from "lucide-react";
 
-import { certificates, experience, projects, skills } from "@/data/portfolio";
+import { certificates, experience, skills } from "@/data/portfolio";
+import { projects } from "@/data/projects";
 import { GithubSection } from "@/components/portfolio/GithubSection";
 import { CertificationCard } from "@/components/portfolio/CertificationCard";
 import { ExperienceEntry } from "@/components/portfolio/ExperienceEntry";

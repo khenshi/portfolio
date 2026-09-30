@@ -11,6 +11,7 @@
 }
 
 .portfolio-sidebar {
+  overflow-y: auto;
   position: sticky;
   top: 0;
   z-index: 20;
@@ -107,6 +108,19 @@
   gap: .55rem;
   margin-top: auto;
   padding-top: 1rem;
+}
+
+.sidebar-game {
+  flex-shrink: 0;
+  margin: 1.5rem .7rem 1rem;
+}
+
+.portfolio-sidebar > * {
+  flex-shrink: 0;
+}
+
+.portfolio-sidebar.is-collapsed .sidebar-game {
+  display: none;
 }
 
 .sidebar-contact,
@@ -1619,6 +1633,10 @@
   .portfolio-sidebar.is-mobile-open {
     transform: translateX(0);
     visibility: visible;
+  }
+
+  .portfolio-sidebar.is-collapsed .sidebar-game {
+    display: block;
   }
 
   .portfolio-sidebar.is-collapsed {
