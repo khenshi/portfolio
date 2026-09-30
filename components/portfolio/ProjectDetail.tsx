@@ -49,10 +49,6 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
   ].filter(Boolean).join(" ");
   const technicalOverview = caseStudy?.approach ?? caseStudy?.solution;
   const technicalDecisions = caseStudy?.technicalDecisions?.slice(0, 3) ?? [];
-  const challengesAndLearnings = [
-    ...(caseStudy?.challengesAndSolutions ?? []).map(({ challenge, solution: resolution }) => `${challenge} — ${resolution}`),
-    ...(caseStudy?.learnings ?? []),
-  ].slice(0, 4);
 
   return (
     <article className="project-detail">
@@ -105,46 +101,42 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
       </section>
 
       <div className="project-detail-content page-section shell">
-        <DetailSection number="01" title="Project Overview" id="project-overview-title">
-          <p className="project-detail-copy">{overview}</p>
-        </DetailSection>
-
-        {project.features.length > 0 && (
-          <DetailSection number="02" title="Key Features" id="project-features-title">
-            <ul className="project-detail-list">
-              {project.features.slice(0, 6).map((feature) => <li key={feature}>{feature}</li>)}
-            </ul>
+        <div className="project-detail-intro-grid">
+          <DetailSection number="01" title="Project Overview" id="project-overview-title">
+            <p className="project-detail-copy">{overview}</p>
           </DetailSection>
-        )}
+
+          {project.features.length > 0 && (
+            <DetailSection number="02" title="Key Features" id="project-features-title">
+              <ul className="project-detail-list">
+                {project.features.slice(0, 6).map((feature) => <li key={feature}>{feature}</li>)}
+              </ul>
+            </DetailSection>
+          )}
+        </div>
 
         <DetailSection number="03" title="Technical Overview" id="project-technical-title">
-          <h3 className="project-detail-stack-label">Tech stack</h3>
-          <ul className="tech-list project-detail-stack" aria-label={`${project.title} technologies`}>
-            {project.tech.map((technology) => <li key={technology}>{technology}</li>)}
-          </ul>
           <div className="project-technical-grid">
-            <div>
-              <h3>Architecture &amp; approach</h3>
-              {technicalOverview && <p className="project-detail-copy">{technicalOverview}</p>}
+            <div className="project-technical-stack">
+              <h3 className="project-detail-stack-label">Tech stack</h3>
+              <ul className="tech-list project-detail-stack" aria-label={`${project.title} technologies`}>
+                {project.tech.map((technology) => <li key={technology}>{technology}</li>)}
+              </ul>
             </div>
             {technicalDecisions.length > 0 && (
-              <div>
+              <div className="project-technical-decisions">
                 <h3>Key decisions</h3>
                 <ul className="project-detail-list">
                   {technicalDecisions.map((decision) => <li key={decision}>{decision}</li>)}
                 </ul>
               </div>
             )}
+            <div className="project-technical-approach">
+              <h3>Architecture &amp; approach</h3>
+              {technicalOverview && <p className="project-detail-copy">{technicalOverview}</p>}
+            </div>
           </div>
         </DetailSection>
-
-        {challengesAndLearnings.length > 0 && (
-          <DetailSection number="04" title="Challenges & Learnings" id="project-challenges-title">
-            <ul className="project-detail-list">
-              {challengesAndLearnings.map((item) => <li key={item}>{item}</li>)}
-            </ul>
-          </DetailSection>
-        )}
 
         <nav className="project-pagination" aria-label="Project navigation">
           {previousProject ? (
