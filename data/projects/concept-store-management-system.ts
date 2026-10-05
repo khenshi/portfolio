@@ -1,14 +1,17 @@
 import type { Project } from "./types";
 
-export const conceptStoreManagementSystem: Project =
-{
+export const conceptStoreManagementSystem: Project = {
   slug: "concept-store-management-system",
   title: "Kapwesto — Concept Store Management System",
-  cardSummary: "Manage merchants, retail spaces, inventory, and sales across store branches.",
+
+  cardSummary:
+    "Manage merchants, inventory, sales, spaces, and finances across concept store branches.",
+
   status: "In Development",
-  timeline: "",
+  timeline: "2026 – Present",
+
   description:
-    "A multi-tenant SaaS platform designed to help concept stores manage merchants, retail spaces, inventory, sales, agreements, and financial operations across multiple branches.",
+    "A multi-tenant SaaS platform built for concept stores to manage merchants, retail spaces, inventory, sales, agreements, and financial operations across multiple branches.",
 
   tech: [
     "Next.js",
@@ -19,14 +22,11 @@ export const conceptStoreManagementSystem: Project =
   ],
 
   features: [
-    "Multi-tenant organization and branch management with isolated business data",
-    "Role-based access for owners, managers, and cashiers",
-    "Merchant, retail space, and agreement management",
-    "Branch-level product inventory with stock receiving and adjustments",
-    "Auditable inventory movement history",
-    "Point-of-sale and sales history workflows",
-    "Sales reports with product, merchant, and payment method insights",
-    "Merchant settlements, payouts, and rent tracking",
+    "Multi-tenant organizations, branches, and role-based access",
+    "Merchant, retail space, and business agreement management",
+    "Branch-level inventory with auditable stock movement tracking",
+    "Point-of-sale, sales history, and performance reporting",
+    "Merchant settlements, payouts, commissions, and rent tracking",
   ],
 
   links: {
@@ -36,34 +36,40 @@ export const conceptStoreManagementSystem: Project =
   },
 
   note:
-    "Actively developed as a SaaS platform for multi-merchant concept stores.",
+    "",
 
   role: "Full-Stack Developer & System Designer",
 
   caseStudy: {
-    // Draft overview, approach, decisions, and challenges below are inferred from the existing description and features.
     overview:
-      "Kapwesto is a multi-tenant platform for concept stores where independent merchants share branches, retail spaces, and store operations. It brings merchant agreements, inventory, point of sale, reporting, and financial workflows together for store teams.",
+      "Kapwesto is a multi-tenant management platform designed for concept stores where multiple independent merchants operate within shared retail locations. It centralizes merchant management, spaces, inventory, sales, reporting, and financial operations while supporting multiple branches and different staff roles.",
+
+    problem:
+      "Concept stores have more complex operations than traditional retail stores because multiple merchants share the same store, sales infrastructure, and inventory processes. Managing merchant agreements, stock, sales attribution, rent, commissions, and payouts across these merchants can quickly become difficult to track.",
 
     background:
-      "Concept stores operate differently from traditional retail stores because multiple independent merchants share the same store, spaces, inventory operations, and sales infrastructure. Kapwesto was created to centralize these workflows and give store owners a structured way to manage their operations.",
+      "Kapwesto was created to explore a centralized system specifically designed around the operating model of concept stores rather than adapting a traditional retail or POS system to fit their workflows.",
+
+    solution:
+      "I designed Kapwesto as an integrated platform where store owners and staff can manage merchants, spaces, agreements, inventory, sales, and financial settlements while keeping records organized by organization and branch.",
 
     approach:
-      "Kapwesto is structured as a multi-tenant SaaS, with organizations containing branches, members, merchants, spaces, agreements, products, inventory, sales, and financial records. The Next.js and NestJS application uses PostgreSQL through Prisma to support those connected operational workflows.",
-    problem: "",
-    solution: "",
+      "The system is structured around organizations and branches, with connected modules for merchants, agreements, products, inventory, POS, reporting, and finance. The backend enforces business rules and data isolation while the frontend provides role-specific workflows for daily store operations.",
 
     technicalDecisions: [
-      "Use organization and branch scope to keep each store's operational data separated.",
-      "Track inventory movements as records so stock changes can be reviewed over time.",
-      "Keep merchant, sales, and settlement records connected to support store reporting and reconciliation.",
+      "Use organization and branch scoping to support multi-tenancy and isolate business data.",
+      "Record inventory changes as immutable movements for traceability and auditing.",
+      "Connect sales to merchants and products to support accurate reporting and settlements.",
+      "Separate operational sales data from settlement workflows for clearer financial reconciliation.",
+      "Design modules independently while keeping shared business relationships consistent across the system.",
     ],
 
     gallery: [],
   },
+
   thumbnail: {
     src: "/images/kapwesto.webp",
-    alt: "Screenshot of the Kapwesto Concept Store Management System application interface",
-    caption: "",
+    alt: "Kapwesto concept store management dashboard",
+    caption: "Multi-branch concept store management dashboard",
   },
 };

@@ -3,10 +3,16 @@ import type { Project } from "./types";
 export const truthLayer: Project = {
   slug: "truthlayer",
   title: "TruthLayer",
-  cardSummary: "Analyze online content for credibility with an AI-powered misinformation detector.",
-  status: "",
-  timeline: "",
-  description: "An AI-powered misinformation detection platform that analyzes online content and estimates its credibility using natural language processing and machine learning. Built during a hackathon to help users identify potentially misleading information.",
+
+  cardSummary:
+    "Analyze online content and surface supporting context with an AI-assisted misinformation detection tool.",
+
+  status: "Completed",
+  timeline: "2025",
+
+  description:
+    "An AI-assisted misinformation detection platform that analyzes online content and provides credibility estimates with supporting context using machine learning, natural language processing, and retrieval-based verification.",
+
   tech: [
     "TypeScript",
     "Python",
@@ -15,41 +21,59 @@ export const truthLayer: Project = {
     "OpenAI",
     "Pinecone",
     "Tailwind CSS",
-    "Docker"
+    "Docker",
   ],
+
   features: [
-    "AI-powered credibility analysis for articles and social media content",
-    "Chrome extension integration for real-time Facebook post analysis",
-    "Retrieval-augmented verification using vector search and trusted knowledge sources",
-    "Analyze online content through a browser extension workflow",
-    "Use retrieved reference material to provide context for credibility estimates",
+    "AI-assisted credibility analysis for online content",
+    "Chrome extension for analyzing Facebook posts while browsing",
+    "Machine learning classification for misinformation detection",
+    "Retrieval-augmented verification using vector search",
+    "Supporting context and references alongside credibility estimates",
   ],
+
   links: {
     github: "https://github.com/khenshi/MJKTeam1-TruthLayer",
     demo: "",
-    album: "https://drive.google.com/file/d/184efcM5xcEJGrqbDCaqBONFXMAxTZQ4x/view?fbclid=IwY2xjawTLNMZleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAEwAAEeE_E7pYmCIubWL8P03DvGXLFpL_UdlgTH_axH49G3Ni1PPAP3DGVp5fdbuaM_aem_rACZhjlmrulMdkSnbqMhCQ&pli=1",
+    album:
+      "",
   },
-  note: "hackathon top 6",
-  role: "",
-  // Editable draft inferred from the existing project description, features, and tech stack.
+
+  note:
+    "Top 6 hackathon project",
+
+  role: "Full-Stack & AI Developer",
+
   caseStudy: {
     overview:
-      "TruthLayer explores how AI can help people assess online claims. Built during a hackathon, it analyzes articles and social posts, then uses retrieved reference material to provide a credibility estimate with additional context.",
+      "TruthLayer is an AI-assisted misinformation detection platform built during a hackathon to help users evaluate questionable online content. Through a browser extension, users can analyze posts while browsing and receive credibility estimates supported by retrieved reference material and contextual information.",
+
+    problem:
+      "Misleading information spreads quickly through social platforms, while verifying claims often requires users to manually search for reliable sources and compare information across multiple websites.",
+
+    background:
+      "TruthLayer was developed during a hackathon exploring how AI and machine learning could make credibility checking more accessible within a user's normal browsing experience. The project advanced to the Top 6.",
+
+    solution:
+      "We built a browser-based workflow that captures online content and sends it to an analysis service that combines machine learning, AI, and retrieved reference material to provide additional context for evaluating a claim.",
+
     approach:
-      "A Chrome extension sends content for analysis to a Python API built with FastAPI. The analysis combines machine-learning and OpenAI capabilities with Pinecone vector search to retrieve relevant reference material.",
-    problem: "",
-    background: "",
-    solution: "",
+      "A Chrome extension handles content capture while a FastAPI backend performs the analysis. Machine learning and AI components process the content, while Pinecone vector search retrieves relevant reference material that can support the resulting credibility assessment.",
+
     technicalDecisions: [
-      "Keep browser capture separate from the Python analysis service through an API boundary.",
-      "Use vector search to retrieve contextual reference material for an analyzed claim.",
-      "Present credibility as an estimate to support review rather than a definitive truth label.",
+      "Separate the Chrome extension from the AI analysis service through a FastAPI backend.",
+      "Use machine learning and NLP to analyze textual content.",
+      "Use vector search to retrieve contextual reference material.",
+      "Present credibility as an estimate rather than a definitive truth label.",
+      "Containerize application services with Docker for consistent deployment.",
     ],
+
     gallery: [],
   },
+
   thumbnail: {
     src: "/images/truthlayer.webp",
-    alt: "Screenshot of the TruthLayer application interface",
-    caption: "",
+    alt: "TruthLayer AI-assisted misinformation detection interface",
+    caption: "AI-assisted credibility analysis for online content",
   },
 };

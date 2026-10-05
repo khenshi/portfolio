@@ -3,50 +3,73 @@ import type { Project } from "./types";
 export const pointOfSaleSystem: Project = {
   slug: "point-of-sale-system",
   title: "Point of Sale (POS) System",
-  cardSummary: "Manage sales, inventory, and user accounts in a Java desktop app.",
-  description: "A desktop-based point-of-sale system developed in Java for a school project, designed to manage sales transactions, inventory, and user accounts through an intuitive interface for cashiers and administrators.",
+
+  cardSummary:
+    "Process sales and manage products, inventory, and users through a Java desktop application.",
+
+  description:
+    "A Java desktop point-of-sale system developed as a school project for managing sales transactions, products, inventory, and user accounts through dedicated cashier and administrator workflows.",
+
   tech: [
     "Java",
     "Java Swing",
     "SQLite",
-    "JDBC"
+    "JDBC",
   ],
+
   features: [
-    "Role-based user authentication and account management",
+    "Role-based authentication for cashiers and administrators",
     "Product and inventory management with CRUD operations",
-    "Sales processing with receipt generation and transaction history",
-    // Draft feature entries inferred from the existing description and feature set.
-    "Review completed transactions through sales history",
-    "Manage cashier and administrator accounts with role-based access",
+    "Sales processing with automatic transaction recording",
+    "Receipt generation for completed purchases",
+    "Transaction history for reviewing previous sales",
   ],
+
   links: {
     github: "https://github.com/khenshi/POS_ENHANCED",
     demo: "",
-    album: "https://drive.google.com/drive/folders/1Sg7kPdaU29_zzIm1pgSXAYxPA6RYsxlv?usp=share_link",
+    album:
+      "",
   },
-  status: "",
-  timeline: "",
-  note: "",
-  role: "",
-  // Editable draft inferred from the existing project description, features, and tech stack.
+
+  status: "Completed",
+  timeline: "2025",
+
+  note:
+    "",
+
+  role: "Developer",
+
   caseStudy: {
     overview:
-      "The Point of Sale System is a Java desktop application for processing sales and managing products, inventory, and user accounts. It supports cashier and administrator workflows with receipts and a searchable transaction history.",
+      "The Point of Sale System is a Java desktop application built to simulate common retail operations such as processing purchases, managing products and inventory, generating receipts, and reviewing sales records. It provides separate workflows for cashiers and administrators within a single application.",
+
+    problem:
+      "Retail transactions require an organized way to process purchases while keeping product, inventory, user, and transaction records consistent.",
+
+    background:
+      "The system was developed as a school project to apply object-oriented programming, desktop interface development, and relational database concepts to a practical application.",
+
+    solution:
+      "I developed a desktop POS application that combines sales processing, inventory management, user accounts, receipts, and transaction history into one system.",
+
     approach:
-      "A Java Swing interface connects through JDBC to a SQLite database for account, product, inventory, and sales records. The desktop workflow brings transaction processing and record management into a single application.",
-    problem: "",
-    background: "",
-    solution: "",
+      "The application uses Java Swing for the desktop interface and JDBC to connect application logic with a SQLite database containing users, products, inventory, and transaction records.",
+
     technicalDecisions: [
-      "Use SQLite for persistent application records in the desktop project.",
-      "Separate cashier and administrator access through role-based accounts.",
-      "Keep receipt generation and transaction history connected to sales processing for later review.",
+      "Use Java Swing to build the desktop user interface.",
+      "Use SQLite for lightweight local data persistence.",
+      "Connect application logic and database operations through JDBC.",
+      "Separate cashier and administrator capabilities using role-based access.",
+      "Store completed sales for receipt generation and transaction history.",
     ],
+
     gallery: [],
   },
+
   thumbnail: {
     src: "/images/POS.webp",
-    alt: "Screenshot of the Point of Sale System application interface",
-    caption: "",
+    alt: "Java Point of Sale System desktop interface",
+    caption: "Sales and inventory management desktop application",
   },
 };

@@ -3,51 +3,74 @@ import type { Project } from "./types";
 export const munimuniResortManagementSystem: Project = {
   slug: "munimuni-resort-management-system",
   title: "MuniMuni Resort Management System",
-  cardSummary: "Manage resort reservations, guests, and resources from a centralized dashboard.",
+
+  cardSummary:
+    "Manage resort bookings, payments, guests, and front desk operations through a centralized platform.",
+
   status: "In Development",
-  timeline: "",
-  description: "A full-stack resort management platform designed to streamline reservations, guest management, and administrative operations. The system provides tools for managing accommodations, bookings, front desk workflows, and resort resources through a centralized dashboard.",
+  timeline: "2025 – Present",
+
+  description:
+    "A full-stack resort management platform that streamlines reservations, payments, front desk operations, accommodations, and resort resources through dedicated guest and staff applications.",
+
   tech: [
     "Next.js",
     "TypeScript",
     "Tailwind CSS",
+    "NestJS",
     "Prisma",
     "PostgreSQL",
-    "Express.js"
   ],
+
   features: [
-    "Online booking and reservation management for guests",
-    "Admin dashboard for accommodations, guests, and operational management",
-    "Centralized management of rooms, cottages, packages, inventory, and transactions",
-    "Coordinate guest and front desk workflows from a central dashboard",
-    "Manage resort resources alongside reservation records",
+    "Online reservations with full-payment and downpayment options",
+    "Payment submission, verification, and payment history tracking",
+    "Front desk workflows for reservations, walk-ins, and check-ins",
+    "Accommodation, packages, extras, and resort resource management",
+    "Equipment rental management integrated with guest payments",
   ],
+
   links: {
     github: "https://github.com/yourusername/munimuni-resort",
     demo: "https://munimuni-resort.vercel.app",
     album: "",
   },
-  note: "ongoing",
-  role: "",
-  // Editable draft inferred from the existing project description, features, and tech stack.
+
+  note:
+    "",
+
+  role: "Full-Stack Developer",
+
   caseStudy: {
     overview:
-      "MuniMuni Resort Management System brings guest reservations, accommodation management, and resort administration into a centralized platform. It is intended to help guests book stays while giving staff one place to manage bookings and resort resources.",
+      "MuniMuni Resort Management System is a full-stack platform that connects online guest booking with day-to-day resort operations. It uses separate guest and staff applications powered by a shared backend, supporting reservations, payments, front desk workflows, accommodations, extras, and equipment rentals.",
+
+    problem:
+      "Managing reservations, payments, guest information, and resort resources across separate processes can make front desk operations difficult and lead to inconsistent records.",
+
+    background:
+      "The project was developed as a team-based system focused on digitizing both the guest reservation experience and the internal workflows required to operate a resort.",
+
+    solution:
+      "The system provides guests with a dedicated booking and payment experience while giving resort staff a separate application for managing reservations, payments, walk-ins, check-ins, and resort resources.",
+
     approach:
-      "The platform pairs a Next.js and TypeScript application with an Express.js service and a PostgreSQL data model managed through Prisma. Guest booking and administrative workflows share the resort's accommodation and reservation records.",
-    problem: "",
-    background: "",
-    solution: "",
+      "The architecture consists of two Next.js frontends: one for guests and another for staff and administrators. Both communicate with a shared NestJS backend that centralizes business rules, authentication, reservations, payments, availability, and resource management.",
+
     technicalDecisions: [
-      "Keep guest booking and staff administration as distinct workflows over shared reservation data.",
-      "Use a relational database model for reservations, guests, accommodations, and resort resources.",
-      "Centralize operational views so staff can manage bookings and resources from the dashboard.",
+      "Separate guest and staff experiences into independent Next.js applications.",
+      "Use a shared NestJS backend for APIs and centralized business logic.",
+      "Connect reservation availability with payment verification and booking status.",
+      "Maintain payment history for downpayments, balances, and additional charges.",
+      "Use PostgreSQL and Prisma for shared relational operational data.",
     ],
+
     gallery: [],
   },
+
   thumbnail: {
     src: "/images/munimuni.webp",
-    alt: "Screenshot of the MuniMuni Resort Management System application interface",
-    caption: "",
+    alt: "MuniMuni Resort Management System dashboard",
+    caption: "Centralized resort reservation and operations management",
   },
 };
