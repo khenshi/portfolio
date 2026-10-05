@@ -19,6 +19,5 @@ export const projects: Project[] = [
 export type {
   Project,
   ProjectCaseStudy,
-  ProjectChallenge,
   ProjectGalleryImage,
 } from "./types";

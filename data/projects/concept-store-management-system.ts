@@ -6,6 +6,7 @@ export const conceptStoreManagementSystem: Project =
   title: "Kapwesto — Concept Store Management System",
   cardSummary: "Manage merchants, retail spaces, inventory, and sales across store branches.",
   status: "In Development",
+  timeline: "",
   description:
     "A multi-tenant SaaS platform designed to help concept stores manage merchants, retail spaces, inventory, sales, agreements, and financial operations across multiple branches.",
 
@@ -49,6 +50,8 @@ export const conceptStoreManagementSystem: Project =
 
     approach:
       "Kapwesto is structured as a multi-tenant SaaS, with organizations containing branches, members, merchants, spaces, agreements, products, inventory, sales, and financial records. The Next.js and NestJS application uses PostgreSQL through Prisma to support those connected operational workflows.",
+    problem: "",
+    solution: "",
 
     technicalDecisions: [
       "Use organization and branch scope to keep each store's operational data separated.",
@@ -56,28 +59,11 @@ export const conceptStoreManagementSystem: Project =
       "Keep merchant, sales, and settlement records connected to support store reporting and reconciliation.",
     ],
 
-    challengesAndSolutions: [
-      {
-        challenge: "Multiple merchants share store infrastructure while retaining separate business records.",
-        solution: "Organize the platform around tenant organizations and their branches, members, and merchants.",
-      },
-      {
-        challenge: "Store teams need context for changes to branch inventory.",
-        solution: "Represent receiving and adjustments in an auditable inventory movement history.",
-      },
-    ],
-
-    outcomes: [
-      "Built a multi-tenant architecture with organization-level data isolation.",
-      "Developed merchant, branch, space, agreement, and inventory management workflows.",
-      "Implemented auditable stock receiving, adjustment, and movement tracking.",
-      "Designed POS and sales history workflows for multi-merchant transactions.",
-      "Developed sales reporting for products, merchants, payment methods, and sales trends.",
-      "Designed settlement, payout, and rent workflows for merchant financial management.",
-    ],
+    gallery: [],
   },
-    thumbnail: {
-      src: "/images/kapwesto.webp",
-      alt: "Screenshot of the Kapwesto Concept Store Management System application interface",
-    },
-}
+  thumbnail: {
+    src: "/images/kapwesto.webp",
+    alt: "Screenshot of the Kapwesto Concept Store Management System application interface",
+    caption: "",
+  },
+};

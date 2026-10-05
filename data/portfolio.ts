@@ -14,9 +14,9 @@ export type Certificate = {
   title: string;
   issuer: string;
   date: string;
-  icon?: string;
-  credentialId?: string;
-  credentialUrl?: string;
+  icon: string;
+  credentialId: string;
+  credentialUrl: string;
 };
 
 export const skills: SkillGroup[] = [
@@ -107,6 +107,7 @@ export const certificates: Certificate[] = [
     issuer: "Scrimba",
     date: "2026",
     icon: "/icons/scrimba.svg",
+    credentialId: "",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert24zAwPPowNTBxVhVdUuEzeUS1mCGoygZykct8",
   },
   {
@@ -114,6 +115,7 @@ export const certificates: Certificate[] = [
     issuer: "Scrimba",
     date: "2026",
     icon: "/icons/scrimba.svg",
+    credentialId: "",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2JbLs3qgAygbMwfjN2BCt3xPK9bHLMQDw2LCeq",
   },
   {
@@ -121,6 +123,7 @@ export const certificates: Certificate[] = [
     issuer: "Scrimba",
     date: "2026",
     icon: "/icons/scrimba.svg",
+    credentialId: "",
     credentialUrl: "https://scrimba.com/@khenisawsomeza:certs;cert2ffentAFMakffWbgTExAkCbShGmN1sc2x24icYUZttaz3r"
   },
   {
@@ -128,6 +131,7 @@ export const certificates: Certificate[] = [
     issuer: "DataCamp",
     date: "2026",
     icon: "/icons/datacamp.svg",
+    credentialId: "",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/track/638d5e6c3357fe105aaf4f9652295a52b81f4c77?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
   },
   {
@@ -135,12 +139,15 @@ export const certificates: Certificate[] = [
     issuer: "DataCamp",
     date: "2026",
     icon: "/icons/datacamp.svg",
+    credentialId: "",
     credentialUrl: "https://www.datacamp.com/completed/statement-of-accomplishment/course/c5ad3e3515454f44ac7b6564b72a2ebe9e3c47af"    
   },
   {
     title: "OpenxAI Coding Session",
     issuer: "OpenxAI",
     date: "2025",
+    icon: "",
+    credentialId: "",
     credentialUrl: "https://explorer.certifika.org/token/BASE-938",
   },
   {
@@ -148,6 +155,7 @@ export const certificates: Certificate[] = [
     issuer: "freeCodeCamp",
     date: "2025",
     icon: "/icons/freecodecamp.svg",
+    credentialId: "",
     credentialUrl: "https://freecodecamp.org/certification/khenshi/responsive-web-design",
   },
   {
@@ -155,6 +163,7 @@ export const certificates: Certificate[] = [
     issuer: "freeCodeCamp",
     date: "2026",
     icon: "/icons/freecodecamp.svg",
+    credentialId: "",
     credentialUrl: "https://www.freecodecamp.org/certification/khenshi/javascript-v9"
   }
 ];

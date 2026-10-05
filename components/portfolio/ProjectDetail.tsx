@@ -38,16 +38,16 @@ function ProjectLink({ href, children }: { href: string; children: React.ReactNo
 }
 
 export function ProjectDetail({ project, previousProject, nextProject }: ProjectDetailProps) {
-  const gallery = project.caseStudy?.gallery ?? [];
-  const heroImage = project.thumbnail ?? gallery[0];
+  const gallery = project.caseStudy.gallery;
+  const heroImage = project.thumbnail.src ? project.thumbnail : gallery[0];
   const sourceLinkIsReal = project.links.github.includes("github.com/khenshi/");
   const caseStudy = project.caseStudy;
-  const overview = caseStudy?.overview ?? [
-    caseStudy?.problem ?? caseStudy?.background,
+  const overview = caseStudy?.overview || [
+    caseStudy?.problem || caseStudy?.background,
     project.description,
-    caseStudy?.solution ?? caseStudy?.approach,
+    caseStudy?.solution || caseStudy?.approach,
   ].filter(Boolean).join(" ");
-  const technicalOverview = caseStudy?.approach ?? caseStudy?.solution;
+  const technicalOverview = caseStudy?.approach || caseStudy?.solution;
   const technicalDecisions = caseStudy?.technicalDecisions?.slice(0, 3) ?? [];
 
   return (
@@ -80,19 +80,19 @@ export function ProjectDetail({ project, previousProject, nextProject }: Project
         <div>
           <h2 className="m-0 text-[.68rem] font-bold uppercase tracking-[.12em] text-muted">Project status</h2>
           <p className={`mt-[.6rem] text-[.84rem] leading-[1.55] ${project.status ? "text-ink" : "italic text-muted"}`}>
-            {project.status ?? "Not provided"}
+            {project.status || "Not provided"}
           </p>
         </div>
         <div>
           <h2 className="m-0 text-[.68rem] font-bold uppercase tracking-[.12em] text-muted">My role</h2>
           <p className={`mt-[.6rem] text-[.84rem] leading-[1.55] ${project.role ? "text-ink" : "italic text-muted"}`}>
-            {project.role ?? "Not provided"}
+            {project.role || "Not provided"}
           </p>
         </div>
         <div>
           <h2 className="m-0 text-[.68rem] font-bold uppercase tracking-[.12em] text-muted">Timeline / Year</h2>
           <p className={`mt-[.6rem] text-[.84rem] leading-[1.55] ${project.timeline ? "text-ink" : "italic text-muted"}`}>
-            {project.timeline ?? "Not provided"}
+            {project.timeline || "Not provided"}
           </p>
         </div>
       </section>

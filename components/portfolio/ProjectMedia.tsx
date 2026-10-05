@@ -23,7 +23,7 @@ function isAvailablePublicImage(src: string | undefined) {
 
 export function ProjectMedia({ image, title, placeholderLabel, variant, sizes }: ProjectMediaProps) {
   const imageIsAvailable = isAvailablePublicImage(image?.src);
-  const placeholderTitle = placeholderLabel ?? image?.caption ?? `${title} preview`;
+  const placeholderTitle = placeholderLabel ?? (image?.caption || `${title} preview`);
   const variantClass = variant === "card"
     ? "aspect-[16/10] mb-[.8rem]"
     : variant === "hero"

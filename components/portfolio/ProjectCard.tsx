@@ -11,7 +11,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project, variant }: ProjectCardProps) {
   const technologyLimit = variant === "overview" ? 4 : 5;
-  const preview = project.thumbnail ?? project.caseStudy?.gallery?.[0];
+  const preview = project.thumbnail.src ? project.thumbnail : project.caseStudy.gallery[0];
   const imageSizes = variant === "overview"
     ? "(max-width: 760px) 82vw, (max-width: 1100px) 36vw, 24rem"
     : "(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw";
@@ -38,12 +38,12 @@ export function ProjectCard({ project, variant }: ProjectCardProps) {
         <dl className="mt-3 grid grid-cols-[minmax(0,1fr)_minmax(0,auto)] gap-[.6rem_.8rem] border-t border-line pt-3">
           <div className="min-w-0">
             <dt className="text-[.62rem] font-bold uppercase tracking-[.1em] text-muted">My role</dt>
-            <dd className="mt-[.28rem] text-[.76rem] leading-[1.45]">{project.role ?? "Not provided"}</dd>
+            <dd className="mt-[.28rem] text-[.76rem] leading-[1.45]">{project.role || "Not provided"}</dd>
           </div>
           <div className="min-w-0">
             <dt className="text-[.62rem] font-bold uppercase tracking-[.1em] text-muted">Project status</dt>
             <dd className={`mt-[.28rem] text-[.76rem] leading-[1.45] ${project.status ? "" : "italic text-muted"}`}>
-              {project.status ?? "Not provided"}
+              {project.status || "Not provided"}
             </dd>
           </div>
         </dl>
